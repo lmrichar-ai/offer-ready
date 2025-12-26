@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Offer Ready | Recruiting Mentorship</title>
-  <meta name="description" content="Structured, practical recruiting mentorship for investment banking, wealth management, and buy-side roles." />
+  <meta name="description" content="Structured, practical recruiting mentorship for IB, wealth management, and buy-side roles." />
 
   <style>
     :root{
@@ -17,13 +17,15 @@
       --shadow: 0 12px 28px rgba(2,6,23,.08);
       --radius:18px;
       --max:1120px;
-
       --accent:#0b2b72;
       --accent2:#1f4fd6;
     }
-
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; color:var(--text); background: radial-gradient(1200px 600px at 15% 10%, #e9f0ff, transparent 60%), radial-gradient(1200px 700px at 85% 20%, #e6fbff, transparent 55%), var(--bg);}
+    html,body{margin:0;padding:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--text);
+      background: radial-gradient(1200px 600px at 15% 10%, #e9f0ff, transparent 60%),
+                  radial-gradient(1200px 700px at 85% 20%, #e6fbff, transparent 55%),
+                  var(--bg);
+    }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 64px;}
     .card{background:var(--card); border:1px solid rgba(226,232,240,.9); border-radius:var(--radius); box-shadow: var(--shadow);}
@@ -35,7 +37,6 @@
     .btn-row{display:flex; gap:10px; flex-wrap:wrap}
     .pill{display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; border:1px solid rgba(226,232,240,.9); background:#fff; font-size:13px; color:var(--muted); font-weight:600}
 
-    /* header */
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter:saturate(140%) blur(10px);
@@ -54,19 +55,8 @@
     .brand strong{display:block; font-size:14px; line-height:1.1}
     .brand span{display:block; font-size:12px; color:var(--muted); line-height:1.1}
 
-    /* hero */
-    .hero{
-      margin-top:16px;
-      padding:22px;
-      overflow:hidden;
-      position:relative;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.25fr .9fr;
-      gap:16px;
-      align-items:stretch;
-    }
+    .hero{margin-top:16px; padding:22px; overflow:hidden; position:relative;}
+    .hero-grid{display:grid; grid-template-columns: 1.25fr .9fr; gap:16px; align-items:stretch;}
     .hero h1{margin:0 0 10px; font-size:44px; letter-spacing:-.02em; line-height:1.03}
     .hero p{margin:0 0 16px; font-size:16px; color:var(--muted); line-height:1.6}
     .hero-left{padding:6px 4px}
@@ -76,7 +66,6 @@
     .kpi .item strong{display:block; font-size:14px}
     .kpi .item span{display:block; font-size:13px; color:var(--muted); margin-top:3px}
 
-    /* sections */
     .section{margin-top:18px}
     .section h2{margin:0 0 10px; font-size:26px; letter-spacing:-.01em}
     .section p.lead{margin:0 0 14px; color:var(--muted); line-height:1.55}
@@ -96,7 +85,7 @@
       display:flex;
       gap:26px;
       width:max-content;
-      animation: scroll 18s linear infinite;
+      animation: scroll 22s linear infinite;
       padding:4px 0 2px;
     }
     .marquee:hover .marquee-track{animation-play-state: paused;}
@@ -137,29 +126,17 @@
     .work li{margin:6px 0}
     .work b{color:var(--text)}
 
-    /* testimonials */
-    .tgrid{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
-    .tcard{padding:16px}
-    blockquote{margin:0; color:var(--text); line-height:1.65; font-size:15px}
-    .tmeta{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-    .chip{display:inline-flex; align-items:center; padding:7px 11px; border-radius:999px; border:1px solid rgba(226,232,240,.9); background:#fff; color:var(--muted); font-size:13px; font-weight:650}
-
     /* CTA */
     .cta{padding:18px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
     .cta h3{margin:0; font-size:20px}
     .cta p{margin:4px 0 0; color:var(--muted); line-height:1.5}
-    .cta .btn-row{margin-top:10px}
 
-    /* footer */
     footer{margin-top:22px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center}
-    footer a{color:var(--muted)}
 
-    /* responsive */
     @media (max-width: 900px){
       .hero-grid{grid-template-columns: 1fr;}
       .hero h1{font-size:36px}
       .steps{grid-template-columns: 1fr;}
-      .tgrid{grid-template-columns: 1fr;}
     }
   </style>
 </head>
@@ -169,7 +146,6 @@
     <div class="topbar-inner">
       <a class="brand" href="./">
         <div class="logoMark" aria-hidden="true">
-          <!-- simple growth mark -->
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M6 16V12" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
             <path d="M11 16V9" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
@@ -199,7 +175,7 @@
 
           <div class="btn-row">
             <a class="btn btn-primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
-            <a class="btn" href="#testimonials">See Testimonials</a>
+            <a class="btn" href="./testimonials.html">See Testimonials</a>
             <a class="btn" href="./about.html">Meet the Founders</a>
           </div>
         </div>
@@ -220,14 +196,12 @@
             </div>
           </div>
 
-          <div class="muted small">
-            No fluff. Just the parts of recruiting that actually move the needle.
-          </div>
+          <div class="muted small">No fluff. Just the parts of recruiting that actually move the needle.</div>
         </div>
       </div>
     </section>
 
-    <!-- PLACEMENTS (moved higher) -->
+    <!-- PLACEMENTS (all firms, locations removed) -->
     <section class="section">
       <div class="placements card">
         <div class="placements-head">
@@ -274,7 +248,7 @@
       </div>
     </section>
 
-    <!-- WHAT WE WORK ON (lighter + more visible) -->
+    <!-- WHAT WE WORK ON -->
     <section class="section" id="work">
       <div class="work card">
         <h2 style="margin:0 0 6px;">What we work on</h2>
@@ -300,49 +274,34 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS (ALL, ordered) -->
-    <section class="section" id="testimonials">
-      <h2>Testimonials</h2>
-      <p class="lead">A few notes from students we’ve worked with. Names are anonymized by default.</p>
-
-      <div class="tgrid" id="testimonialGrid"></div>
-    </section>
-
-    <!-- CTA -->
+    <!-- BOOK A CALL (before testimonials - testimonials are on a separate page) -->
     <section class="section">
       <div class="cta card">
         <div>
           <h3>Book a quick intro call</h3>
           <p>We’ll learn your goals, recruiting timeline, and current profile. If there’s a fit, we’ll outline next steps.</p>
-          <div class="btn-row">
+          <div class="btn-row" style="margin-top:10px;">
             <a class="btn btn-primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book via Calendly</a>
             <button class="btn" id="copyLucas">Copy Lucas email</button>
             <button class="btn" id="copySanti">Copy Santi email</button>
+            <a class="btn" href="./testimonials.html">View all testimonials</a>
           </div>
           <div class="muted small" style="margin-top:8px;">
             Emails: <b>lmrichar@usc.edu</b> · <b>smrichar@usc.edu</b>
           </div>
         </div>
-        <a class="btn" href="./about.html">Learn more on the About page</a>
+        <a class="btn" href="./about.html">Meet the Founders</a>
       </div>
     </section>
 
     <footer>
       <div>© <span id="year"></span> Offer Ready</div>
-      <div><span class="muted">One-file site · Free hosting</span></div>
+      <div class="muted">One-file site · Free hosting</div>
     </footer>
   </main>
 
   <script>
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Copy buttons
-    function copyText(text){
-      navigator.clipboard.writeText(text).then(() => toast("Copied!"));
-    }
-    document.getElementById("copyLucas").addEventListener("click", () => copyText("lmrichar@usc.edu"));
-    document.getElementById("copySanti").addEventListener("click", () => copyText("smrichar@usc.edu"));
 
     function toast(msg){
       const t = document.createElement("div");
@@ -364,21 +323,38 @@
       setTimeout(()=>{ t.remove(); }, 1400);
     }
 
-    // Placements list (fixed RBC)
+    function copyText(text){
+      navigator.clipboard.writeText(text).then(() => toast("Copied!"));
+    }
+    document.getElementById("copyLucas").addEventListener("click", () => copyText("lmrichar@usc.edu"));
+    document.getElementById("copySanti").addEventListener("click", () => copyText("smrichar@usc.edu"));
+
+    /*
+      IMPORTANT:
+      Paste your COMPLETE firm list here (names only — no locations).
+      I included a strong default list + your priority firms.
+      If your full list is longer, just add them here and they will auto-show on the banner.
+    */
     const firms = [
+      // priority firms (as requested)
       "Goldman Sachs",
+      "Blackstone",
+      "Evercore",
+      "Lazard",
+      "Rothschild",
+      "Bank of America",
+
+      // common placements shown earlier / default
       "J.P. Morgan",
       "Morgan Stanley",
-      "Evercore",
       "UBS",
-      "RBC",
-      "Bank of America (NYC)",
+      "RBC",                 // fixed (NOT RBS)
       "Jefferies",
-      "Macquarie (NY)",
+      "Macquarie",
       "Piper Sandler"
     ];
 
-    // Duplicate to create seamless marquee loop
+    // create seamless marquee loop by duplicating
     const marquee = document.getElementById("marqueeTrack");
     const twice = firms.concat(firms);
     twice.forEach(name => {
@@ -386,36 +362,6 @@
       el.className = "marquee-item";
       el.innerHTML = '<span class="dot"></span>' + name;
       marquee.appendChild(el);
-    });
-
-    // Testimonials (ALL, ordered by prestige)
-    const testimonials = [
-      {
-        quote: "Lucas and Santi were hands down the best mentors I worked with. They refined my professional brand—emails, resume, and behaviorals—and pushed me with high-level technical questions. Every session I walked away sharper, more confident, and more independent in how I problem-solved.",
-        tags: ["Investment Banking", "Macquarie (NY) · J.P. Morgan"]
-      },
-      {
-        quote: "Lucas and Santi played a massive role in me getting my offer. From hours of mock interviews to constant networking guidance, they were always available with actionable advice. I truly don’t think I would’ve landed the offer without them.",
-        tags: ["Investment Banking", "Bank of America (NYC)"]
-      },
-      {
-        quote: "Lucas and Santi were my go-to mentors for recruiting. From mocks to outreach emails, what stood out was their consistency, availability, and commitment through the entire process. Incredible professionals and even better people.",
-        tags: ["Investment Banking", "Piper Sandler"]
-      }
-      // Add more here anytime (they will automatically show)
-    ];
-
-    const grid = document.getElementById("testimonialGrid");
-    testimonials.forEach(t => {
-      const card = document.createElement("div");
-      card.className = "tcard card";
-      card.innerHTML = `
-        <blockquote>“${t.quote}”</blockquote>
-        <div class="tmeta">
-          ${t.tags.map(x => `<span class="chip">${x}</span>`).join("")}
-        </div>
-      `;
-      grid.appendChild(card);
     });
   </script>
 </body>
