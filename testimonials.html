@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offer Ready | Testimonials</title>
+  <meta name="description" content="Testimonials from students we've worked with." />
+
+  <style>
+    :root{
+      --text:#0b1220;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --bg:#ffffff;
+      --shadow:0 14px 32px rgba(2,6,23,.10);
+      --radius:18px;
+      --max:1120px;
+
+      --navy:#0b2b72;
+      --navy2:#0a1f4e;
+      --blue:#2563eb;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 450px at 85% 10%, rgba(37,99,235,.14), transparent 55%),
+        radial-gradient(780px 420px at 15% 55%, rgba(11,43,114,.10), transparent 55%),
+        var(--bg);
+      line-height:1.45;
+    }
+    a{ color:inherit; text-decoration:none; }
+
+    .container{ max-width:var(--max); margin:0 auto; padding:18px 18px 70px; }
+
+    /* Navbar (matches your site) */
+    .nav{
+      position:sticky; top:0;
+      backdrop-filter:saturate(150%) blur(10px);
+      background:rgba(255,255,255,.72);
+      border-bottom:1px solid rgba(229,231,235,.65);
+      z-index:50;
+    }
+    .nav-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{ display:flex; align-items:center; gap:10px; min-width:180px; }
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background:linear-gradient(135deg, var(--blue), var(--navy));
+      box-shadow:0 10px 22px rgba(37,99,235,.28);
+      position:relative;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .logo:before{
+      content:"";
+      position:absolute;
+      inset:7px;
+      border-radius:8px;
+      background:
+        linear-gradient(#fff,#fff) left 6px bottom / 5px 38% no-repeat,
+        linear-gradient(#fff,#fff) center bottom / 5px 62% no-repeat,
+        linear-gradient(#fff,#fff) right 6px bottom / 5px 86% no-repeat;
+      opacity:.95;
+    }
+    .brand h1{ margin:0; font-size:14px; line-height:1.1; letter-spacing:-.2px; }
+    .brand span{ display:block; font-size:12px; color:var(--muted); margin-top:2px; font-weight:500; }
+
+    .nav-links{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
+    .pill{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.9);
+      font-weight:650;
+      font-size:13px;
+      color:#0f172a;
+      white-space:nowrap;
+    }
+    .pill.primary{
+      border:none;
+      background:linear-gradient(135deg, var(--navy), var(--navy2));
+      color:#fff;
+      box-shadow:0 14px 24px rgba(11,43,114,.24);
+    }
+
+    /* Page header */
+    h2{
+      margin:22px 0 8px;
+      font-size: clamp(28px, 4.2vw, 40px);
+      letter-spacing:-.8px;
+      line-height:1.05;
+    }
+    p.lede{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:14px;
+      max-width:80ch;
+    }
+    .disclaimer{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* Testimonials grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(229,231,235,.85);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height: 220px;
+    }
+    blockquote{
+      margin:0;
+      color:#0f172a;
+      font-size:14px;
+      line-height:1.55;
+      white-space:pre-wrap;
+    }
+    .meta{
+      margin-top:auto;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      padding-top:2px;
+    }
+    .name{
+      font-weight:900;
+      font-size:13px;
+      color:#0f172a;
+      letter-spacing:-.2px;
+    }
+    .tags{ display:flex; flex-wrap:wrap; gap:8px; }
+    .tag{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(229,231,235,.95);
+      background:rgba(255,255,255,.92);
+      font-weight:800;
+      font-size:12px;
+      color:#0f172a;
+      white-space:nowrap;
+    }
+
+    .footer{
+      margin-top:22px;
+      padding-top:16px;
+      border-top:1px solid rgba(229,231,235,.85);
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px){
+      .grid{ grid-template-columns: 1fr; }
+      .brand{ min-width:auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="./index.html" aria-label="Offer Ready Home">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Offer Ready</h1>
+          <span>Recruiting mentorship</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a class="pill" href="./index.html">Home</a>
+        <a class="pill" href="./about.html">About</a>
+        <a class="pill primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Testimonials</h2>
+    <p class="lede">A few notes from students we’ve worked with.</p>
+    <p class="disclaimer">
+      Firm names are shown for reference only — Offer Ready is not affiliated with, sponsored by, or endorsed by any firm listed.
+    </p>
+
+    <div class="grid">
+
+      <!-- Rahul Gupta -->
+      <div class="card">
+        <blockquote>“Lucas and Santi were my go to guys for recruiting. From mocks to writing emails, what stood out to me was their availability and commitment across the process. Incredible professionals and people.”</blockquote>
+        <div class="meta">
+          <div class="name">Rahul Gupta</div>
+          <div class="tags">
+            <span class="tag">Piper Sandler</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alexia Rufo -->
+      <div class="card">
+        <blockquote>“Lucas was so helpful during the recruitment process, from one-on-one technical tutoring to specialized advice on recruitment strategy. He was such a great mentor and I cannot thank him enough for guiding me through the process.”</blockquote>
+        <div class="meta">
+          <div class="name">Alexia Rufo</div>
+          <div class="tags">
+            <span class="tag">UBS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emma Xiang -->
+      <div class="card">
+        <blockquote>“Lucas and Santi were super helpful during the recruiting process for both sophomore and junior summer — I genuinely don’t think I would have gotten either without their support and guidance. They both provided mock interviews, question banks, and personalized help for my recruiting goals which ultimately helped me land my offers. They were also great resources for general advice in networking, deciding between offers, and were always a text away for help.”</blockquote>
+        <div class="meta">
+          <div class="name">Emma Xiang</div>
+          <div class="tags">
+            <span class="tag">Blackstone</span>
+            <span class="tag">Evercore</span>
+            <span class="tag">Bank of America</span>
+            <span class="tag">Bain Capital Credit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Malcolm Short -->
+      <div class="card">
+        <blockquote>“Lucas was an incredible mentor throughout the recruiting process. He was super flexible with his time and always went out of his way to help, whether it was conducting mock interviews, sharing insights, or giving guidance. He genuinely cared about my success, and his support made a huge difference in helping me feel prepared and confident.”</blockquote>
+        <div class="meta">
+          <div class="name">Malcolm Short</div>
+          <div class="tags">
+            <!-- If you want RBS instead, change RBC -> RBS -->
+            <span class="tag">RBC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Justin Lim -->
+      <div class="card">
+        <blockquote>“The twin’s mentorship was very tailored to my needs. And even when I did not know what my exact struggle or problem was, they took the time to find like the actual root issue and that made a huge difference. It laid a really good foundation for my understanding of what makes a good TMAY, WHY IB, etc. sounded like, so I was able to make better judgments on my own as I got deeper into recruiting.”</blockquote>
+        <div class="meta">
+          <div class="name">Justin Lim</div>
+          <div class="tags">
+            <span class="tag">PWP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alexis Choi -->
+      <div class="card">
+        <blockquote>“Lucas was such a helpful mentor throughout recruitment. Coming into banking with no background in finance, he was able to break down the basics and provide guidance on navigating the process. From technicals to behaviorals, I felt supported every step of the way!!”</blockquote>
+        <div class="meta">
+          <div class="name">Alexis Choi</div>
+          <div class="tags">
+            <span class="tag">Citi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kruti -->
+      <div class="card">
+        <blockquote>“You guys weren’t just tutors, you provided an extremely important layer of support which allowed me to get through recruiting. From motivational advice to mock interviews, I knew I could call you no matter what! Thank you for all that you poured in to help me get my offer.”</blockquote>
+        <div class="meta">
+          <div class="name">Kruti</div>
+          <div class="tags">
+            <span class="tag">Rothschild</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ella Kang -->
+      <div class="card">
+        <blockquote>“Santi and Lucas were extremely helpful during my recruiting process! Whenever I had any questions they knew exactly how to help because of their previous experiences. Working with them is a great way to be as prepared as possible for Investment Banking recruiting.”</blockquote>
+        <div class="meta">
+          <div class="name">Ella Kang</div>
+          <div class="tags">
+            <span class="tag">Goldman Sachs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Johnson Wu -->
+      <div class="card">
+        <blockquote>“Santi and Lucas have been monumental to my journey. My experience would have been very different without all the mocks, insights, and support from them. I’m incredibly grateful to have them as my mentors and friends.”</blockquote>
+        <div class="meta">
+          <div class="name">Johnson Wu</div>
+          <div class="tags">
+            <span class="tag">Vista Equity Partners</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Walker Blackwell -->
+      <div class="card">
+        <blockquote>“Lucas and Santi were hands down the best mentors at USC.
+
+From a professional standpoint they know the ins and outs of investment banking recruiting and will put you in a position to succeed in the industry. For me, they did this by refining my professional brandage (emails, resume, behaviorals) and walking me through insane technical questions. Every time we chatted, I came out with a better technical understanding and behavioral acuity. From a mentor standpoint, they’re very chill people to be around and great at communicating how to problem solve for yourself. I can’t recommend Santi and Lucas enough.”</blockquote>
+        <div class="meta">
+          <div class="name">Walker Blackwell</div>
+          <div class="tags">
+            <span class="tag">Macquarie</span>
+            <span class="tag">J.P. Morgan</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shant -->
+      <div class="card">
+        <blockquote>“Santi and Lucas were both instrumental in my recruiting process. I realized I wanted to pursue investment banking at the start of the fall semester, and so, I felt behind compared to my peers. As a result, I signed up for Santi and Lucas’s mentorship program, which proved to be an invaluable resource. Through countless mock interviews, my behavioral and technical skills progressed immensely. Santi and Lucas were also extremely responsive every time I reached out to them for help or advice.
+
+The recruiting process is different for everyone and difficult to navigate, and so, having two individuals who were extremely successful in their processes provided me with a sense of confidence knowing that they were in my corner to support me. Overall, I would highly recommend Santi and Lucas’s mentorship program as they are both incredible mentors and individuals.”</blockquote>
+        <div class="meta">
+          <div class="name">Shant</div>
+          <div class="tags">
+            <span class="tag">Rothschild</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <div>© <span id="yr"></span> Offer Ready</div>
+      <div>
+        <a href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a call</a>
+        • <a href="./index.html">Back to home</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
