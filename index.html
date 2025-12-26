@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Offer Ready | Finance Recruiting Mentorship</title>
+  <meta name="description" content="Offer Ready mentors students pursuing investment banking, wealth management, and buy-side roles with structured recruiting support." />
+
+  <style>
+    :root{
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --accent:#111827;
+      --accent2:#334155;
+      --soft:#f8fafc;
+      --shadow: 0 10px 25px rgba(2,6,23,.12);
+      --radius: 18px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);background:#fff}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#fff;border:0;border-radius:999px;
+      padding:12px 18px;font-weight:650;box-shadow:var(--shadow);
+      cursor:pointer;
+    }
+    .btn.secondary{background:#fff;color:var(--accent);border:1px solid var(--line);box-shadow:none}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);box-shadow:none}
+    .btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+
+    .nav{
+      position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);z-index:50
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .brand{display:flex;gap:12px;align-items:center}
+    .pill{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+
+    .hero{
+      padding:56px 0 26px;
+      background: radial-gradient(800px 400px at 20% 20%, #e2e8f0, transparent),
+                  radial-gradient(900px 500px at 80% 10%, #cbd5e1, transparent);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center}
+    h1{font-size:44px;line-height:1.07;margin:0 0 12px}
+    .lead{font-size:18px;line-height:1.5;color:var(--muted);margin:0 0 18px}
+
+    .card{
+      background:#fff;border:1px solid var(--line);
+      border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(2,6,23,.06)
+    }
+    .card.dark{
+      background:linear-gradient(135deg,#0b1220,#111827);
+      color:#f8fafc;border:1px solid rgba(255,255,255,.12);
+    }
+
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+    .kpi{padding:14px;border-radius:14px;background:var(--soft);border:1px solid var(--line)}
+    .kpi b{display:block;font-size:18px}
+    .kpi span{color:var(--muted);font-size:13px}
+
+    .section{padding:34px 0}
+    .section h2{font-size:26px;margin:0 0 12px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .feature h3{margin:0 0 6px;font-size:16px}
+    .feature p{margin:0;color:var(--muted);line-height:1.5}
+
+    .ticker{
+      overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+      background:#fff
+    }
+    .ticker-track{
+      display:flex;gap:28px;white-space:nowrap;
+      animation: scroll 22s linear infinite;
+      padding:12px 0
+    }
+    .ticker .item{font-weight:650;color:#0f172a;opacity:.9}
+    @keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+
+    .small{font-size:13px;color:var(--muted);line-height:1.5}
+    .testimonial{display:flex;flex-direction:column;gap:10px}
+    .testimonial .meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px;flex-wrap:wrap}
+    .badge{font-size:12px;border:1px solid var(--line);padding:4px 10px;border-radius:999px;background:#fff}
+    .hr{border:0;border-top:1px solid var(--line);margin:14px 0}
+
+    .footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:14px}
+    .pagehead{padding:26px 0 8px}
+    .pagehead h1{font-size:34px}
+
+    /* one-file page routing */
+    [data-page]{display:none}
+    [data-page].active{display:block}
+
+    /* simple “toast” alert */
+    .toast{
+      position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+      background:#0b1220;color:#f8fafc;border:1px solid rgba(255,255,255,.14);
+      padding:10px 12px;border-radius:999px;box-shadow:var(--shadow);
+      opacity:0;pointer-events:none;transition:opacity .15s ease;
+      font-size:13px;
+      max-width:calc(100vw - 24px);
+    }
+    .toast.show{opacity:1}
+
+    @media (max-width: 860px){
+      .hero-grid{grid-template-columns:1fr}
+      h1{font-size:36px}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .kpis{grid-template-columns:1fr}
+      .nav-links{gap:12px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" data-link aria-label="Go to home">
+        <!-- inline logo -->
+        <svg width="150" height="34" viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Offer Ready logo" style="height:34px;width:auto">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#111827"/>
+              <stop offset="1" stop-color="#334155"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(18,18)">
+            <rect x="0" y="0" width="104" height="104" rx="22" fill="url(#g)"/>
+            <path d="M40 56c0-12 9-22 22-22h10c12 0 22 10 22 22s-10 22-22 22H62" fill="none" stroke="#F8FAFC" stroke-width="10" stroke-linecap="round"/>
+            <path d="M62 78h16c10 0 18 8 18 18" fill="none" stroke="#F8FAFC" stroke-width="10" stroke-linecap="round"/>
+          </g>
+          <g transform="translate(150,44)">
+            <text x="0" y="28" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="34" font-weight="750" fill="#0F172A">
+              Offer Ready
+            </text>
+          </g>
+        </svg>
+        <span class="pill">Recruiting Mentorship</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about" data-link>About</a>
+        <a href="#testimonials" data-link>Testimonials</a>
+        <a class="btn" href="#book" data-link>Book a Call</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOME -->
+  <main class="active" data-page="home">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Recruiting help that’s structured, practical, and built for real interviews.</h1>
+          <p class="lead">
+            Offer Ready mentors students pursuing <b>investment banking</b>, <b>wealth management</b>, and <b>buy-side</b> roles.
+            We focus on what drives outcomes: positioning, networking, technical readiness, and interview performance.
+          </p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#book" data-link>Book a Call</a>
+            <a class="btn secondary" href="#testimonials" data-link>See Testimonials</a>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi"><b>Clear weekly plan</b><span>So you always know the next step</span></div>
+            <div class="kpi"><b>Interview-level reps</b><span>Mocks + feedback that sharpen fast</span></div>
+            <div class="kpi"><b>Practical recruiting</b><span>Outreach, strategy, technicals, fit</span></div>
+          </div>
+        </div>
+
+        <div class="card dark">
+          <h2 style="margin:0 0 10px">What we work on</h2>
+          <div class="small">
+            <ul style="margin:0;padding-left:18px">
+              <li>Resume + story positioning (finance-ready)</li>
+              <li>Technical training (IB + markets basics)</li>
+              <li>Networking strategy + outreach scripts</li>
+              <li>Mock interviews + debriefs</li>
+              <li>Offer decisions + next steps</li>
+            </ul>
+            <p class="small" style="opacity:.92;margin-top:12px">
+              No fluff. Just the parts of recruiting that actually move the needle.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- firms ticker -->
+    <div class="ticker">
+      <div class="container">
+        <div class="ticker-track" aria-label="Firms where clients have received offers">
+          <span class="item">Evercore</span>
+          <span class="item">Goldman Sachs</span>
+          <span class="item">BofA</span>
+          <span class="item">J.P. Morgan</span>
+          <span class="item">Morgan Stanley</span>
+          <span class="item">UBS</span>
+          <span class="item">Citi</span>
+          <span class="item">Piper Sandler</span>
+          <span class="item">Perella Weinberg</span>
+          <span class="item">Rothschild &amp; Co</span>
+          <span class="item">Macquarie</span>
+          <span class="item">Blackstone</span>
+          <span class="item">Vista Equity Partners</span>
+          <span class="item">Bain Capital Credit</span>
+          <span class="item">Lazard</span>
+        </div>
+        <div class="small" style="padding:10px 0 12px">
+          Firm names shown as plain text for reference only. Not affiliated with or endorsed by any firm.
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <h2>How it works</h2>
+        <div class="grid-3">
+          <div class="card feature">
+            <h3>1) Diagnose</h3>
+            <p>We map your current profile, target roles, and timeline, then build a plan you can execute weekly.</p>
+          </div>
+          <div class="card feature">
+            <h3>2) Build</h3>
+            <p>We tighten resume + story, train technicals, and create a networking pipeline that’s realistic and consistent.</p>
+          </div>
+          <div class="card feature">
+            <h3>3) Perform</h3>
+            <p>We run mock interviews, fix weak spots fast, and help you show up calm, clear, and prepared.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="grid-2">
+          <div class="card">
+            <h2>Testimonials (highlights)</h2>
+
+            <div class="testimonial">
+              <p>“Lucas and Santi played a massive role in me getting my offer. From hours of mock interviews to constant networking guidance, they were always available with actionable advice. I truly don’t think I would’ve landed the offer without them.”</p>
+              <div class="meta"><span class="badge">Investment Banking</span><span>BofA (NYC)</span></div>
+            </div>
+
+            <hr class="hr">
+
+            <div class="testimonial">
+              <p>“Lucas and Santi were hands down the best mentors I worked with. They refined my professional brand—emails, resume, and behaviorals—and pushed me with high-level technical questions. Every session I walked away sharper, more confident, and more independent in how I problem-solved.”</p>
+              <div class="meta"><span class="badge">Investment Banking</span><span>Macquarie (NY) • J.P. Morgan</span></div>
+            </div>
+
+            <div style="margin-top:14px">
+              <a class="btn secondary" href="#testimonials" data-link>Read more</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Book a quick intro call</h2>
+            <p class="small">
+              We’ll learn your goals, recruiting timeline, and current profile. If there’s a fit, we’ll outline next steps.
+            </p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+              <a class="btn" href="#book" data-link>Book a Call</a>
+              <button class="btn ghost" id="copyEmailBtn">Copy email</button>
+            </div>
+            <p class="small" style="margin-top:12px">
+              Email: <b id="emailText">offerreadymentorship@gmail.com</b>
+              <br><span class="small">(Change this later to your real business email.)</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ABOUT -->
+  <main data-page="about">
+    <div class="container pagehead">
+      <h1>About</h1>
+      <p class="lead">Offer Ready is a mentorship built by two brothers who’ve been through the process and care about doing it the right way.</p>
+    </div>
+
+    <section class="section" style="padding-top:0">
+      <div class="container grid-2">
+        <div class="card">
+          <h2>Our approach</h2>
+          <p class="small">
+            Recruiting can feel chaotic. We make it simple: clean positioning, consistent outreach, technical readiness, and interview reps.
+            The goal is to help you perform with confidence because you’ve done the work the right way.
+          </p>
+          <ul class="small" style="margin:0;padding-left:18px">
+            <li>Clear weekly execution plan</li>
+            <li>Story + fit answers that sound natural</li>
+            <li>Technicals taught for real interviews</li>
+            <li>Mocks, feedback, and accountability</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Founders</h2>
+          <p class="small"><b>Lucas Richard</b> — Co-founder</p>
+          <p class="small">USC Marshall (Finance). Background in investment banking. Focus areas: story positioning, technical prep, and mock interviews.</p>
+
+          <hr class="hr">
+
+          <p class="small"><b>Santi Richard</b> — Co-founder</p>
+          <p class="small">USC Marshall. Focus areas: recruiting strategy, networking systems, outreach messaging, and interview performance coaching.</p>
+
+          <p class="small" style="margin-top:12px">
+            <a class="btn" href="#book" data-link>Book a Call</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TESTIMONIALS -->
+  <main data-page="testimonials">
+    <div class="container pagehead">
+      <h1>Testimonials</h1>
+      <p class="lead">A few notes from students we’ve worked with.</p>
+      <p class="small">If you prefer that we anonymize names or firms, we can change this instantly.</p>
+    </div>
+
+    <section class="section" style="padding-top:0">
+      <div class="container grid-3">
+
+        <div class="card testimonial">
+          <p>“Lucas and Santi played a massive role in me getting my offer. From hours of mock interviews to constant networking guidance, they were always available with actionable advice. I truly don’t think I would’ve landed the offer without them.”</p>
+          <div class="meta"><span class="badge">Investment Banking</span><span>BofA (NYC)</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“Lucas and Santi were my go-to mentors for recruiting. From mocks to outreach emails, what stood out was their consistency, availability, and commitment through the entire process. Incredible professionals and even better people.”</p>
+          <div class="meta"><span class="badge">Investment Banking</span><span>Piper Sandler</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“Lucas was a huge help during recruiting, from one-on-one technical tutoring to specific guidance on strategy and timelines. He was an outstanding mentor and I’m very grateful for the support.”</p>
+          <div class="meta"><span class="badge">Investment Banking</span><span>UBS (LA)</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“They supported me through both sophomore and junior recruiting. The mock interviews, question banks, and personalized guidance were exactly what I needed to land my offers. They were also invaluable for networking, offer decisions, and day-to-day advice.”</p>
+          <div class="meta"><span class="badge">IB / Buy-side</span><span>Blackstone REPE • Evercore • BofA • Bain Capital Credit</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“Lucas was an incredible mentor throughout recruiting. He was flexible with his time and always went out of his way to help, whether it was mocks, insights, or honest feedback. His support made a huge difference in my confidence.”</p>
+          <div class="meta"><span class="badge">Investment Banking</span><span>RBS (NY)</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“The mentorship was tailored to my needs. Even when I couldn’t articulate what was wrong, they found the root issue and fixed it. It helped me build strong ‘Tell me about yourself’ and ‘Why IB’ answers and make better judgments as recruiting intensified.”</p>
+          <div class="meta"><span class="badge">Investment Banking</span><span>Perella Weinberg Partners (LA)</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“Coming into banking with no finance background, Lucas broke down the basics and guided me through the process. From technicals to behaviorals, I felt supported every step of the way.”</p>
+          <div class="meta"><span class="badge">Investment Banking</span><span>Citi (SF)</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“You weren’t just tutors—you provided a layer of support that got me through recruiting. From motivational advice to mocks, I always knew I could call or text when things got stressful. Thank you for everything you poured into helping me earn my offer.”</p>
+          <div class="meta"><span class="badge">Investment Banking</span><span>Rothschild (NY)</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“Santi and Lucas were extremely helpful during my recruiting process. Whenever I had questions, they knew exactly how to help based on their experience. Working with them is the best way to be fully prepared for IB recruiting.”</p>
+          <div class="meta"><span class="badge">Investment Banking</span><span>Goldman Sachs (NY)</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“Santi and Lucas were monumental to my journey. The mocks, insights, and support changed my trajectory, and I’m incredibly grateful to have them as mentors and friends.”</p>
+          <div class="meta"><span class="badge">Private Equity</span><span>Vista Equity Partners</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“Lucas and Santi were hands down the best mentors I worked with. They refined my professional brand—emails, resume, and behaviorals—and pushed me with high-level technical questions. Every session I walked away sharper, more confident, and more independent in how I problem-solved.”</p>
+          <div class="meta"><span class="badge">Investment Banking</span><span>Macquarie (NY) • J.P. Morgan</span></div>
+        </div>
+
+        <div class="card testimonial">
+          <p>“I decided to pursue IB late and felt behind. Their mentorship was invaluable: countless mocks, fast progress in both technicals and behaviorals, and extremely responsive support. Recruiting is tough and different for everyone—having two mentors who’d been through it successfully gave me real confidence.”</p>
+          <div class="meta"><span class="badge">Investment Banking</span><span>Rothschild (LA) TMT</span></div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- BOOK -->
+  <main data-page="book">
+    <div class="container pagehead">
+      <h1>Book a call</h1>
+      <p class="lead">Quick intro call to align on your goals, timeline, and next steps.</p>
+    </div>
+
+    <section class="section" style="padding-top:0">
+      <div class="container grid-2">
+        <div class="card">
+          <h2 style="margin-top:0">Right now</h2>
+          <p class="small">While you’re setting up Calendly, the fastest way to schedule is email.</p>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+            <a class="btn" id="emailBtn" href="mailto:offerreadymentorship@gmail.com?subject=Offer%20Ready%20Intro%20Call&body=Hi%20Lucas%20and%20Santi%2C%0A%0AI%E2%80%99d%20love%20to%20set%20up%20a%20quick%20intro%20call.%20Here%E2%80%99s%20my%20current%20situation%3A%0A-%20School%2FYear%3A%0A-%20Target%20roles%3A%0A-%20Timeline%3A%0A-%20Anything%20else%3A%0A%0AThank%20you%21">
+              Email to book
+            </a>
+            <button class="btn ghost" id="copyEmailBtn2">Copy email</button>
+          </div>
+
+          <p class="small" style="margin-top:12px">
+            Email: <b>offerreadymentorship@gmail.com</b>
+            <br><span class="small">(Swap this to your real email anytime.)</span>
+          </p>
+
+          <hr class="hr">
+
+          <h2>Later (Calendly)</h2>
+          <p class="small">
+            When you have your Calendly link, paste it into the code once and the “Book” button can open it.
+            If you send me the link, I’ll update this file for you instantly.
+          </p>
+
+          <button class="btn secondary" aria-disabled="true" id="calBtn">Calendly link coming soon</button>
+        </div>
+
+        <div class="card">
+          <h2 style="margin-top:0">What we cover on the call</h2>
+          <ul class="small" style="margin:0;padding-left:18px">
+            <li>Your background + target roles (IB / WM / buy-side)</li>
+            <li>Timeline + what’s realistic this cycle</li>
+            <li>Resume/story positioning priorities</li>
+            <li>Networking plan (outreach → calls → referrals)</li>
+            <li>Technical prep approach + mock cadence</li>
+          </ul>
+          <p class="small" style="margin-top:12px">
+            We keep it straightforward and execution-focused.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="y"></span> Offer Ready</div>
+      <div class="small">One-file site • Free hosting</div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Copied.</div>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // ticker loop
+    (function(){
+      const track = document.querySelector('.ticker-track');
+      if(!track) return;
+      const items = Array.from(track.children).map(el => el.cloneNode(true));
+      items.forEach(clone => track.appendChild(clone));
+    })();
+
+    // hash router (#home, #about, #testimonials, #book)
+    function setPageFromHash(){
+      const hash = (location.hash || '#home').replace('#','');
+      document.querySelectorAll('[data-page]').forEach(p => p.classList.remove('active'));
+      const target = document.querySelector('[data-page="' + hash + '"]') || document.querySelector('[data-page="home"]');
+      target.classList.add('active');
+      window.scrollTo(0,0);
+    }
+    window.addEventListener('hashchange', setPageFromHash);
+    document.querySelectorAll('[data-link]').forEach(a=>{
+      a.addEventListener('click', () => setTimeout(setPageFromHash, 0));
+    });
+    setPageFromHash();
+
+    // toast helper
+    const toast = document.getElementById('toast');
+    let toastTimer = null;
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=>toast.classList.remove('show'), 1100);
+    }
+
+    // copy email buttons
+    const email = "offerreadymentorship@gmail.com";
+    function copyEmail(){
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(email).then(()=>showToast("Email copied."));
+      } else {
+        showToast("Copy not supported.");
+      }
+    }
+    const c1 = document.getElementById('copyEmailBtn');
+    const c2 = document.getElementById('copyEmailBtn2');
+    if (c1) c1.addEventListener('click', copyEmail);
+    if (c2) c2.addEventListener('click', copyEmail);
+
+    // Calendly placeholder
+    const calBtn = document.getElementById('calBtn');
+    if (calBtn){
+      calBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        showToast("Add your Calendly link later.");
+      });
+    }
+  </script>
+</body>
+</html>
