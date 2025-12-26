@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Offer Ready | Recruiting Mentorship</title>
-  <meta name="description" content="Structured recruiting mentorship for IB + finance roles. Positioning, networking, technical prep, and mock interviews." />
+  <meta name="description" content="Structured, practical recruiting mentorship for investment banking, wealth management, and buy-side roles." />
 
   <style>
     :root{
@@ -16,639 +16,407 @@
       --card:#ffffff;
       --shadow: 0 12px 28px rgba(2,6,23,.08);
       --radius:18px;
+      --max:1120px;
 
-      --accent:#0b2b72;   /* deep */
-      --accent2:#2563eb;  /* blue */
-      --accent3:#06b6d4;  /* cyan */
+      --accent:#0b2b72;
+      --accent2:#1f4fd6;
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      background:
-        radial-gradient(900px 520px at 15% -5%, rgba(37,99,235,.14), transparent 60%),
-        radial-gradient(900px 520px at 90% 0%, rgba(6,182,212,.12), transparent 60%),
-        var(--bg);
-      line-height:1.35;
-    }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:1120px; margin:0 auto; padding:22px}
-    .section{padding:22px 0}
-    .card{
-      background:var(--card);
-      border:1px solid rgba(226,232,240,.95);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-    .title{font-size:40px; line-height:1.05; margin:0 0 10px}
-    .sub{color:var(--muted); font-size:16px; margin:0}
+    html,body{margin:0;padding:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; color:var(--text); background: radial-gradient(1200px 600px at 15% 10%, #e9f0ff, transparent 60%), radial-gradient(1200px 700px at 85% 20%, #e6fbff, transparent 55%), var(--bg);}
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 64px;}
+    .card{background:var(--card); border:1px solid rgba(226,232,240,.9); border-radius:var(--radius); box-shadow: var(--shadow);}
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:999px; border:1px solid rgba(226,232,240,.9); background:#fff; cursor:pointer; text-decoration:none; font-weight:650;}
+    .btn-primary{background:linear-gradient(135deg, var(--accent), #061a44); color:#fff; border:1px solid rgba(2,6,23,.12);}
+    .btn:active{transform:translateY(1px)}
+    .btn-row{display:flex; gap:10px; flex-wrap:wrap}
+    .pill{display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; border:1px solid rgba(226,232,240,.9); background:#fff; font-size:13px; color:var(--muted); font-weight:600}
 
-    /* Top nav */
-    .nav{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,.72);
-      border-bottom:1px solid rgba(226,232,240,.7);
+    /* header */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(255,255,255,.72);
+      border-bottom:1px solid rgba(226,232,240,.65);
     }
-    .navInner{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 22px}
-    .brand{display:flex; align-items:center; gap:10px}
-    .mark{
-      width:38px; height:38px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(11,43,114,.95));
-      position:relative; box-shadow: 0 10px 22px rgba(37,99,235,.22);
+    .topbar-inner{max-width:var(--max); margin:0 auto; padding:12px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px;}
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+    .logoMark{
+      width:30px; height:30px; border-radius:10px;
+      background: linear-gradient(135deg, #0b2b72, #1f4fd6);
+      box-shadow: 0 8px 18px rgba(31,79,214,.22);
+      display:grid; place-items:center;
     }
-    .mark:before, .mark:after{
-      content:""; position:absolute; bottom:10px; left:11px;
-      width:4px; border-radius:6px; background:#fff;
-    }
-    .mark:before{height:9px; opacity:.85}
-    .mark:after{
-      height:16px; left:18px; opacity:.95
-    }
-    .mark i{
-      position:absolute; bottom:10px; left:25px;
-      width:4px; height:22px; background:#fff; border-radius:6px; display:block;
-    }
-    .brand b{font-size:14px; letter-spacing:.2px}
-    .brand span{display:block; font-size:12px; color:var(--muted); margin-top:1px}
+    .logoMark svg{width:18px; height:18px}
+    .brand strong{display:block; font-size:14px; line-height:1.1}
+    .brand span{display:block; font-size:12px; color:var(--muted); line-height:1.1}
 
-    .navLinks{display:flex; align-items:center; gap:10px}
-    .pill{
-      padding:10px 14px;
-      border:1px solid rgba(226,232,240,.95);
-      border-radius:999px;
-      background:#fff;
-      font-size:13px;
-      color:var(--muted);
+    /* hero */
+    .hero{
+      margin-top:16px;
+      padding:22px;
+      overflow:hidden;
+      position:relative;
     }
-    .btn{
-      padding:11px 16px;
-      border-radius:999px;
-      border:1px solid rgba(2,6,23,.06);
-      background: linear-gradient(135deg, var(--accent), #0a1f52);
-      color:#fff;
-      font-weight:650;
-      font-size:13px;
-      box-shadow: 0 12px 22px rgba(11,43,114,.22);
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .btn.secondary{
-      background:#fff;
-      color:var(--text);
-      border:1px solid rgba(226,232,240,.95);
-      box-shadow:none;
-      font-weight:600;
-    }
-
-    /* Hero */
-    .hero{padding:26px 0 10px}
-    .heroGrid{
+    .hero-grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
+      grid-template-columns: 1.25fr .9fr;
+      gap:16px;
       align-items:stretch;
     }
-    .heroCard{padding:22px}
-    .heroActions{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
-    .miniList{
-      display:grid;
-      gap:10px;
-      padding:18px;
-    }
-    .miniItem{
-      padding:14px 14px;
-      border:1px solid rgba(226,232,240,.95);
-      border-radius:16px;
-      background: linear-gradient(180deg, #fff, rgba(246,248,255,.65));
-    }
-    .miniItem b{display:block; font-size:14px}
-    .miniItem span{display:block; margin-top:4px; font-size:12px; color:var(--muted)}
+    .hero h1{margin:0 0 10px; font-size:44px; letter-spacing:-.02em; line-height:1.03}
+    .hero p{margin:0 0 16px; font-size:16px; color:var(--muted); line-height:1.6}
+    .hero-left{padding:6px 4px}
+    .hero-right{padding:16px; display:flex; flex-direction:column; gap:12px; justify-content:space-between; background:linear-gradient(180deg,#ffffff, #fbfdff); border:1px solid rgba(226,232,240,.9); border-radius:var(--radius)}
+    .kpi{display:grid; gap:10px}
+    .kpi .item{padding:14px 14px; border-radius:14px; border:1px solid rgba(226,232,240,.9); background:#fff}
+    .kpi .item strong{display:block; font-size:14px}
+    .kpi .item span{display:block; font-size:13px; color:var(--muted); margin-top:3px}
 
-    /* Founders + placements */
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
+    /* sections */
+    .section{margin-top:18px}
+    .section h2{margin:0 0 10px; font-size:26px; letter-spacing:-.01em}
+    .section p.lead{margin:0 0 14px; color:var(--muted); line-height:1.55}
+
+    /* placements banner */
+    .placements{padding:18px}
+    .placements-head{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap}
+    .placements .disclaimer{margin-top:10px; font-size:12px; color:var(--muted)}
+    .marquee{
+      margin-top:12px;
+      border-top:1px dashed rgba(226,232,240,.95);
+      padding-top:12px;
+      overflow:hidden;
+      position:relative;
     }
-    .block{padding:18px}
-    .h2{margin:0 0 6px; font-size:22px}
-    .p{margin:0; color:var(--muted); font-size:14px}
-    .founderRow{display:grid; gap:10px; margin-top:12px}
-    .founder{
-      border:1px solid rgba(226,232,240,.95);
-      border-radius:16px;
-      padding:14px;
-      background: linear-gradient(180deg, #fff, rgba(246,248,255,.55));
-      display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
+    .marquee-track{
+      display:flex;
+      gap:26px;
+      width:max-content;
+      animation: scroll 18s linear infinite;
+      padding:4px 0 2px;
     }
-    .founder b{display:block; font-size:14px}
-    .founder small{display:block; margin-top:4px; color:var(--muted); font-size:12px; line-height:1.35}
-    .links{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
-    .linkBtn{
+    .marquee:hover .marquee-track{animation-play-state: paused;}
+    .marquee-item{
+      display:flex; align-items:center; gap:10px;
       padding:8px 12px;
       border-radius:999px;
-      border:1px solid rgba(226,232,240,.95);
+      border:1px solid rgba(226,232,240,.9);
       background:#fff;
-      font-size:12px;
-      color:var(--text);
-      cursor:pointer;
+      font-weight:650;
+      color:#111827;
+      white-space:nowrap;
+      font-size:13px;
+    }
+    .dot{width:8px; height:8px; border-radius:999px; background:linear-gradient(135deg, #0b2b72, #1f4fd6); box-shadow:0 4px 10px rgba(31,79,214,.25)}
+    @keyframes scroll{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
     }
 
-    /* Moving banner (text) */
-    .marqueeCard{padding:16px 18px}
-    .marqueeTop{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    /* how it works */
+    .steps{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px}
+    .step{padding:16px}
+    .badge{
+      width:34px; height:34px; border-radius:10px;
+      background:#eef4ff; color:var(--accent);
+      display:grid; place-items:center; font-weight:800;
+      border:1px solid rgba(226,232,240,.9);
       margin-bottom:10px;
     }
-    .marqueeTop .p{max-width:680px}
-    .marquee{
-      overflow:hidden;
-      border:1px solid rgba(226,232,240,.95);
-      border-radius:14px;
-      background:#fff;
-    }
-    .track{
-      display:flex;
-      gap:22px;
-      padding:12px 14px;
-      width:max-content;
-      animation: scroll 22s linear infinite;
-    }
-    .chip{
-      display:flex; align-items:center; gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(226,232,240,.95);
-      background: linear-gradient(180deg, #fff, rgba(246,248,255,.55));
-      font-weight:650;
-      font-size:13px;
-      white-space:nowrap;
-    }
-    .dot{
-      width:8px; height:8px; border-radius:99px;
-      background: linear-gradient(135deg, var(--accent2), var(--accent3));
-      box-shadow: 0 8px 18px rgba(37,99,235,.25);
-    }
-    .disclaimer{
-      margin-top:8px;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.35;
-    }
-    @keyframes scroll{
-      from{transform:translateX(0)}
-      to{transform:translateX(-50%)}
-    }
+    .step strong{display:block; margin-bottom:6px}
+    .step p{margin:0; color:var(--muted); line-height:1.55}
 
-    /* Steps + work */
-    .steps{display:grid; gap:12px; margin-top:12px}
-    .step{
-      padding:16px;
-      border:1px solid rgba(226,232,240,.95);
-      border-radius:16px;
-      background: linear-gradient(180deg, #fff, rgba(246,248,255,.55));
-      display:flex; gap:12px; align-items:flex-start;
-    }
-    .num{
-      width:28px; height:28px;
-      border-radius:10px;
-      background: rgba(37,99,235,.12);
-      color: var(--accent);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:800;
-      flex:0 0 auto;
-      border:1px solid rgba(37,99,235,.22);
-    }
-    .step b{display:block; font-size:14px}
-    .step span{display:block; margin-top:4px; color:var(--muted); font-size:13px}
-
+    /* what we work on */
+    .work{padding:18px}
     .tags{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 12px}
-    .tag{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(226,232,240,.95);
-      background:#fff;
-      font-size:12px;
-      color:var(--text);
-      font-weight:650;
-    }
-    .bullets{margin:0; padding-left:18px; color:var(--muted); font-size:14px}
-    .bullets li{margin:8px 0}
-    .bullets b{color:var(--text)}
+    .work ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.75}
+    .work li{margin:6px 0}
+    .work b{color:var(--text)}
 
-    /* Testimonials */
-    .testGrid{display:grid; gap:12px; margin-top:12px}
-    .quote{
-      padding:16px;
-      border:1px solid rgba(226,232,240,.95);
-      border-radius:16px;
-      background: linear-gradient(180deg, #fff, rgba(246,248,255,.55));
-    }
-    .quote p{margin:0 0 10px; color:var(--text); font-size:14px; line-height:1.55}
-    .metaRow{display:flex; gap:8px; flex-wrap:wrap}
-    .meta{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(226,232,240,.95);
-      background:#fff;
-      font-size:12px;
-      color:var(--muted);
-      font-weight:650;
-    }
+    /* testimonials */
+    .tgrid{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .tcard{padding:16px}
+    blockquote{margin:0; color:var(--text); line-height:1.65; font-size:15px}
+    .tmeta{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .chip{display:inline-flex; align-items:center; padding:7px 11px; border-radius:999px; border:1px solid rgba(226,232,240,.9); background:#fff; color:var(--muted); font-size:13px; font-weight:650}
 
-    /* CTA card */
-    .cta{padding:18px}
-    .ctaTop{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap}
-    .ctaActions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    .small{font-size:12px; color:var(--muted); margin-top:8px}
+    /* CTA */
+    .cta{padding:18px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    .cta h3{margin:0; font-size:20px}
+    .cta p{margin:4px 0 0; color:var(--muted); line-height:1.5}
+    .cta .btn-row{margin-top:10px}
 
-    footer{
-      padding:30px 0 40px;
-      color:var(--muted);
-      font-size:12px;
-      text-align:center;
-    }
+    /* footer */
+    footer{margin-top:22px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center}
+    footer a{color:var(--muted)}
 
+    /* responsive */
     @media (max-width: 900px){
-      .heroGrid{grid-template-columns: 1fr; }
-      .grid2{grid-template-columns: 1fr}
-      .title{font-size:34px}
-      .navLinks{gap:8px}
-      .pill{display:none}
-      .track{animation-duration: 18s}
+      .hero-grid{grid-template-columns: 1fr;}
+      .hero h1{font-size:36px}
+      .steps{grid-template-columns: 1fr;}
+      .tgrid{grid-template-columns: 1fr;}
     }
   </style>
 </head>
 
 <body>
-
-  <!-- NAV -->
-  <div class="nav">
-    <div class="navInner">
-      <div class="brand" onclick="window.scrollTo({top:0, behavior:'smooth'})" style="cursor:pointer">
-        <div class="mark"><i></i></div>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./">
+        <div class="logoMark" aria-hidden="true">
+          <!-- simple growth mark -->
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M6 16V12" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M11 16V9" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M16 16V6" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div>
-          <b>Offer Ready</b>
+          <strong>Offer Ready</strong>
           <span>Recruiting mentorship</span>
         </div>
-      </div>
+      </a>
 
-      <div class="navLinks">
-        <a class="pill" href="#founders">Founders</a>
-        <a class="pill" href="#testimonials">Testimonials</a>
-        <button class="btn" onclick="openCalendly()">Book a Call</button>
-      </div>
+      <a class="btn btn-primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
     </div>
   </div>
 
-  <div class="wrap">
-
+  <main class="wrap">
     <!-- HERO -->
-    <section class="hero">
-      <div class="heroGrid">
-        <div class="card heroCard">
-          <h1 class="title">Recruiting help that’s structured, practical, and built for real interviews.</h1>
-          <p class="sub">
+    <section class="hero card">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <h1>Recruiting help that’s structured, practical, and built for real interviews.</h1>
+          <p>
             Offer Ready mentors students pursuing <b>investment banking</b>, <b>wealth management</b>, and <b>buy-side</b> roles.
             We focus on what drives outcomes: positioning, networking, technical readiness, and interview performance.
           </p>
 
-          <div class="heroActions">
-            <button class="btn" onclick="openCalendly()">Book a Call</button>
-            <button class="btn secondary" onclick="scrollToId('testimonials')">See Testimonials</button>
-            <button class="btn secondary" onclick="scrollToId('founders')">Meet the Founders</button>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
+            <a class="btn" href="#testimonials">See Testimonials</a>
+            <a class="btn" href="./about.html">Meet the Founders</a>
           </div>
         </div>
 
-        <div class="card miniList">
-          <div class="miniItem">
-            <b>Clear weekly plan</b>
-            <span>So you always know the next step.</span>
+        <div class="hero-right">
+          <div class="kpi">
+            <div class="item">
+              <strong>Clear weekly plan</strong>
+              <span>So you always know the next step.</span>
+            </div>
+            <div class="item">
+              <strong>Interview-level reps</strong>
+              <span>Mocks + feedback that sharpen fast.</span>
+            </div>
+            <div class="item">
+              <strong>Practical recruiting</strong>
+              <span>Outreach, strategy, technicals, fit.</span>
+            </div>
           </div>
-          <div class="miniItem">
-            <b>Interview-level reps</b>
-            <span>Mocks + feedback that sharpen fast.</span>
-          </div>
-          <div class="miniItem">
-            <b>Practical recruiting</b>
-            <span>Outreach, strategy, technicals, fit.</span>
+
+          <div class="muted small">
+            No fluff. Just the parts of recruiting that actually move the needle.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FOUNDERS + PLACEMENTS (moved up) -->
-    <section class="section" id="founders">
-      <div class="grid2">
-
-        <!-- Founders -->
-        <div class="card block">
-          <h2 class="h2">Meet the founders</h2>
-          <p class="p">
-            Twin brothers from Miami, currently seniors at the University of Southern California.
-            We’ve been through the process and care about doing it the right way.
-          </p>
-
-          <div class="founderRow">
-            <div class="founder">
-              <div>
-                <b>Lucas Richard</b>
-                <small>
-                  USC Marshall (Finance). Incoming Investment Banking Analyst at Evercore (NYC).
-                  Focus: story + positioning, technical prep, and mock interviews.
-                </small>
-              </div>
-              <div class="links">
-                <a class="linkBtn" href="https://www.linkedin.com/in/lucas-richard-819707237/?lipi=urn%3Ali%3Apage%3Ap_mwlite_my_network%3BNoo%2FrpwoQ%2BeSqy180PYlYg%3D%3D" target="_blank" rel="noopener">LinkedIn</a>
-                <button class="linkBtn" onclick="copyText('lmrichar@usc.edu','Lucas email copied')">Copy email</button>
-              </div>
-            </div>
-
-            <div class="founder">
-              <div>
-                <b>Santi Richard</b>
-                <small>
-                  USC Marshall. Incoming Investment Banking Analyst at Goldman Sachs (NYC).
-                  Focus: recruiting strategy, networking systems, outreach messaging, and performance coaching.
-                </small>
-              </div>
-              <div class="links">
-                <a class="linkBtn" href="https://www.linkedin.com/in/santiago-richard-6ab574237?trk=blended-typeahead" target="_blank" rel="noopener">LinkedIn</a>
-                <button class="linkBtn" onclick="copyText('smrichar@usc.edu','Santi email copied')">Copy email</button>
-              </div>
+    <!-- PLACEMENTS (moved higher) -->
+    <section class="section">
+      <div class="placements card">
+        <div class="placements-head">
+          <div>
+            <h2 style="margin:0 0 6px;">Recent client internships / job placements</h2>
+            <div class="muted" style="line-height:1.55;">
+              Firm names shown as plain text for reference only — no logos, and no implication of affiliation or endorsement.
             </div>
           </div>
+          <a class="btn" href="./about.html">Learn about us</a>
         </div>
 
-        <!-- Placements marquee -->
-        <div class="card marqueeCard">
-          <div class="marqueeTop">
-            <div>
-              <h2 class="h2" style="margin-bottom:6px">Recent client internships / job placements</h2>
-              <p class="p">
-                Firm names shown as plain text for reference only — no logos, and no implication of affiliation or endorsement.
-              </p>
-            </div>
-            <button class="btn secondary" onclick="scrollToId('how')">How it works</button>
-          </div>
-
-          <div class="marquee" aria-label="Placement marquee">
-            <div class="track" id="track">
-              <!-- Set A -->
-              <div class="chip"><span class="dot"></span> Goldman Sachs</div>
-              <div class="chip"><span class="dot"></span> J.P. Morgan</div>
-              <div class="chip"><span class="dot"></span> Morgan Stanley</div>
-              <div class="chip"><span class="dot"></span> Evercore</div>
-              <div class="chip"><span class="dot"></span> Bank of America (NYC)</div>
-              <div class="chip"><span class="dot"></span> Jefferies</div>
-              <div class="chip"><span class="dot"></span> Macquarie (NY)</div>
-              <div class="chip"><span class="dot"></span> Piper Sandler</div>
-              <div class="chip"><span class="dot"></span> RBC</div>
-              <div class="chip"><span class="dot"></span> UBS</div>
-
-              <!-- Set B (duplicate for seamless loop) -->
-              <div class="chip"><span class="dot"></span> Goldman Sachs</div>
-              <div class="chip"><span class="dot"></span> J.P. Morgan</div>
-              <div class="chip"><span class="dot"></span> Morgan Stanley</div>
-              <div class="chip"><span class="dot"></span> Evercore</div>
-              <div class="chip"><span class="dot"></span> Bank of America (NYC)</div>
-              <div class="chip"><span class="dot"></span> Jefferies</div>
-              <div class="chip"><span class="dot"></span> Macquarie (NY)</div>
-              <div class="chip"><span class="dot"></span> Piper Sandler</div>
-              <div class="chip"><span class="dot"></span> RBC</div>
-              <div class="chip"><span class="dot"></span> UBS</div>
-            </div>
-          </div>
-
-          <div class="disclaimer">
-            Disclaimer: Offer Ready is not affiliated with, sponsored by, or endorsed by any firm listed above.
-          </div>
+        <div class="marquee" aria-label="Placements scrolling list">
+          <div class="marquee-track" id="marqueeTrack"></div>
         </div>
 
+        <div class="disclaimer">
+          Disclaimer: Offer Ready is not affiliated with, sponsored by, or endorsed by any firm listed above.
+        </div>
       </div>
     </section>
 
     <!-- HOW IT WORKS -->
     <section class="section" id="how">
-      <div class="card block">
-        <h2 class="h2">How it works</h2>
-        <p class="p">A simple process that keeps you moving each week — with real execution and feedback.</p>
+      <h2>How it works</h2>
+      <p class="lead">A simple process that keeps you moving each week — with real execution and feedback.</p>
 
-        <div class="steps">
-          <div class="step">
-            <div class="num">1</div>
-            <div>
-              <b>Diagnose</b>
-              <span>We map your current profile, target roles, and timeline — then build a plan you can execute weekly.</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="num">2</div>
-            <div>
-              <b>Build</b>
-              <span>We tighten resume + story, train technicals, and create a networking pipeline that’s realistic and consistent.</span>
-            </div>
-          </div>
-          <div class="step">
-            <div class="num">3</div>
-            <div>
-              <b>Perform</b>
-              <span>We run mock interviews, fix weak spots fast, and help you show up calm, clear, and prepared.</span>
-            </div>
-          </div>
+      <div class="steps">
+        <div class="step card">
+          <div class="badge">1</div>
+          <strong>Diagnose</strong>
+          <p>We map your current profile, target roles, and timeline — then build a plan you can execute weekly.</p>
+        </div>
+        <div class="step card">
+          <div class="badge">2</div>
+          <strong>Build</strong>
+          <p>We tighten resume + story, train technicals, and create a networking pipeline that’s realistic and consistent.</p>
+        </div>
+        <div class="step card">
+          <div class="badge">3</div>
+          <strong>Perform</strong>
+          <p>We run mock interviews, fix weak spots fast, and help you show up calm, clear, and prepared.</p>
         </div>
       </div>
     </section>
 
-    <!-- WHAT WE WORK ON -->
+    <!-- WHAT WE WORK ON (lighter + more visible) -->
     <section class="section" id="work">
-      <div class="card block">
-        <h2 class="h2">What we work on</h2>
-        <p class="p">High-signal support across the parts of recruiting that actually move the needle.</p>
+      <div class="work card">
+        <h2 style="margin:0 0 6px;">What we work on</h2>
+        <p class="lead" style="margin-bottom:10px;">High-signal support across the parts of recruiting that actually move the needle.</p>
 
         <div class="tags">
-          <div class="tag">Positioning</div>
-          <div class="tag">Networking</div>
-          <div class="tag">Technicals</div>
-          <div class="tag">Mocks</div>
-          <div class="tag">Offer strategy</div>
+          <span class="pill">Positioning</span>
+          <span class="pill">Networking</span>
+          <span class="pill">Technicals</span>
+          <span class="pill">Mocks</span>
+          <span class="pill">Offer strategy</span>
         </div>
 
-        <ul class="bullets">
+        <ul>
           <li><b>Resume + story positioning</b> (finance-ready, natural delivery, “why” that actually lands)</li>
           <li><b>Technical training</b> (IB core concepts + markets basics + question pattern recognition)</li>
           <li><b>Networking strategy + outreach scripts</b> (pipeline, follow-ups, conversion to calls)</li>
           <li><b>Mock interviews + debriefs</b> (fit + technical, timed reps, feedback you can apply immediately)</li>
-          <li><b>Offer decisions + next steps</b> (timing, communication, keeping optionality)</li>
+          <li><b>Offer decisions + next steps</b> (timing, communication, and keeping optionality)</li>
         </ul>
 
-        <div class="disclaimer" style="margin-top:12px">
-          No fluff. Just the parts of recruiting that translate to actual interviews and offers.
-        </div>
+        <p class="muted" style="margin:12px 0 0;">No fluff. Just the parts of recruiting that translate to actual interviews and offers.</p>
       </div>
     </section>
 
-    <!-- TESTIMONIALS (show all + prestige order) -->
+    <!-- TESTIMONIALS (ALL, ordered) -->
     <section class="section" id="testimonials">
-      <div class="card block">
-        <h2 class="h2">Testimonials</h2>
-        <p class="p">A few notes from students we’ve worked with. Names are anonymized by default.</p>
+      <h2>Testimonials</h2>
+      <p class="lead">A few notes from students we’ve worked with. Names are anonymized by default.</p>
 
-        <div class="testGrid">
-
-          <!-- Higher-prestige firms first -->
-          <div class="quote">
-            <p>
-              “Lucas and Santi were hands down the best mentors I worked with. They refined my professional brand—emails,
-              resume, and behaviorals—and pushed me with high-level technical questions. Every session I walked away sharper,
-              more confident, and more independent in how I problem-solved.”
-            </p>
-            <div class="metaRow">
-              <div class="meta">Investment Banking</div>
-              <div class="meta">J.P. Morgan</div>
-              <div class="meta">Macquarie (NY)</div>
-            </div>
-          </div>
-
-          <div class="quote">
-            <p>
-              “Lucas and Santi played a massive role in me getting my offer. From hours of mock interviews to constant
-              networking guidance, they were always available with actionable advice. I truly don’t think I would’ve landed
-              the offer without them.”
-            </p>
-            <div class="metaRow">
-              <div class="meta">Investment Banking</div>
-              <div class="meta">Bank of America (NYC)</div>
-            </div>
-          </div>
-
-          <div class="quote">
-            <p>
-              “Lucas and Santi were my go-to mentors for recruiting. From mocks to outreach emails, what stood out was their
-              consistency, availability, and commitment through the entire process. Incredible professionals and even better people.”
-            </p>
-            <div class="metaRow">
-              <div class="meta">Investment Banking</div>
-              <div class="meta">Piper Sandler</div>
-            </div>
-          </div>
-
-          <div class="quote">
-            <p>
-              “The biggest difference was structure. They helped me build a real outreach pipeline, tighten my story, and
-              practice the exact technicals that showed up in interviews. It was high-signal and practical.”
-            </p>
-            <div class="metaRow">
-              <div class="meta">Investment Banking</div>
-              <div class="meta">RBC</div>
-            </div>
-          </div>
-
-          <div class="quote">
-            <p>
-              “Mocks were intense but fair. They called out weak spots immediately, showed me how to fix them, and made sure I
-              could repeat the right approach under pressure.”
-            </p>
-            <div class="metaRow">
-              <div class="meta">Investment Banking</div>
-              <div class="meta">Jefferies</div>
-            </div>
-          </div>
-
-          <div class="quote">
-            <p>
-              “I improved fast because every session ended with clear action items. It wasn’t generic advice — it was exactly what
-              I needed to do that week to move the process forward.”
-            </p>
-            <div class="metaRow">
-              <div class="meta">Recruiting</div>
-              <div class="meta">Buy-side / IB track</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
+      <div class="tgrid" id="testimonialGrid"></div>
     </section>
 
     <!-- CTA -->
-    <section class="section" id="contact">
-      <div class="card cta">
-        <div class="ctaTop">
-          <div>
-            <h2 class="h2" style="margin-bottom:6px">Book a quick intro call</h2>
-            <p class="p">We’ll learn your goals, recruiting timeline, and current profile. If there’s a fit, we’ll outline next steps.</p>
+    <section class="section">
+      <div class="cta card">
+        <div>
+          <h3>Book a quick intro call</h3>
+          <p>We’ll learn your goals, recruiting timeline, and current profile. If there’s a fit, we’ll outline next steps.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book via Calendly</a>
+            <button class="btn" id="copyLucas">Copy Lucas email</button>
+            <button class="btn" id="copySanti">Copy Santi email</button>
+          </div>
+          <div class="muted small" style="margin-top:8px;">
+            Emails: <b>lmrichar@usc.edu</b> · <b>smrichar@usc.edu</b>
           </div>
         </div>
-
-        <div class="ctaActions">
-          <button class="btn" onclick="openCalendly()">Book via Calendly</button>
-          <button class="btn secondary" onclick="copyText('lmrichar@usc.edu','Lucas email copied')">Copy Lucas email</button>
-          <button class="btn secondary" onclick="copyText('smrichar@usc.edu','Santi email copied')">Copy Santi email</button>
-        </div>
-
-        <div class="small">
-          Emails: <b>lmrichar@usc.edu</b> · <b>smrichar@usc.edu</b>
-        </div>
+        <a class="btn" href="./about.html">Learn more on the About page</a>
       </div>
     </section>
 
     <footer>
-      © <span id="yr"></span> Offer Ready · One-file site · Free hosting
+      <div>© <span id="year"></span> Offer Ready</div>
+      <div><span class="muted">One-file site · Free hosting</span></div>
     </footer>
-  </div>
+  </main>
 
   <script>
-    const CALENDLY_URL = "https://calendly.com/lmrichar-usc/30min";
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    function scrollToId(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.scrollIntoView({behavior:'smooth', block:'start'});
+    // Copy buttons
+    function copyText(text){
+      navigator.clipboard.writeText(text).then(() => toast("Copied!"));
     }
+    document.getElementById("copyLucas").addEventListener("click", () => copyText("lmrichar@usc.edu"));
+    document.getElementById("copySanti").addEventListener("click", () => copyText("smrichar@usc.edu"));
 
-    function openCalendly(){
-      window.open(CALENDLY_URL, "_blank", "noopener");
-    }
-
-    function showToast(msg){
+    function toast(msg){
       const t = document.createElement("div");
       t.textContent = msg;
-      t.style.position = "fixed";
-      t.style.left = "50%";
-      t.style.bottom = "22px";
-      t.style.transform = "translateX(-50%)";
-      t.style.background = "rgba(2,6,23,.9)";
-      t.style.color = "#fff";
-      t.style.padding = "10px 14px";
-      t.style.borderRadius = "999px";
-      t.style.fontSize = "13px";
-      t.style.zIndex = "99999";
-      t.style.boxShadow = "0 16px 30px rgba(2,6,23,.25)";
+      t.style.position="fixed";
+      t.style.left="50%";
+      t.style.bottom="22px";
+      t.style.transform="translateX(-50%)";
+      t.style.background="rgba(15,23,42,.92)";
+      t.style.color="#fff";
+      t.style.padding="10px 14px";
+      t.style.borderRadius="999px";
+      t.style.fontWeight="650";
+      t.style.fontSize="13px";
+      t.style.boxShadow="0 12px 30px rgba(2,6,23,.25)";
+      t.style.zIndex="99999";
       document.body.appendChild(t);
-      setTimeout(()=>{ t.style.opacity="0"; }, 1200);
-      setTimeout(()=>{ t.remove(); }, 1500);
+      setTimeout(()=>{ t.style.opacity="0"; }, 900);
+      setTimeout(()=>{ t.remove(); }, 1400);
     }
 
-    async function copyText(text, toastMsg){
-      try{
-        await navigator.clipboard.writeText(text);
-        showToast(toastMsg || "Copied");
-      }catch(e){
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        ta.remove();
-        showToast(toastMsg || "Copied");
+    // Placements list (fixed RBC)
+    const firms = [
+      "Goldman Sachs",
+      "J.P. Morgan",
+      "Morgan Stanley",
+      "Evercore",
+      "UBS",
+      "RBC",
+      "Bank of America (NYC)",
+      "Jefferies",
+      "Macquarie (NY)",
+      "Piper Sandler"
+    ];
+
+    // Duplicate to create seamless marquee loop
+    const marquee = document.getElementById("marqueeTrack");
+    const twice = firms.concat(firms);
+    twice.forEach(name => {
+      const el = document.createElement("div");
+      el.className = "marquee-item";
+      el.innerHTML = '<span class="dot"></span>' + name;
+      marquee.appendChild(el);
+    });
+
+    // Testimonials (ALL, ordered by prestige)
+    const testimonials = [
+      {
+        quote: "Lucas and Santi were hands down the best mentors I worked with. They refined my professional brand—emails, resume, and behaviorals—and pushed me with high-level technical questions. Every session I walked away sharper, more confident, and more independent in how I problem-solved.",
+        tags: ["Investment Banking", "Macquarie (NY) · J.P. Morgan"]
+      },
+      {
+        quote: "Lucas and Santi played a massive role in me getting my offer. From hours of mock interviews to constant networking guidance, they were always available with actionable advice. I truly don’t think I would’ve landed the offer without them.",
+        tags: ["Investment Banking", "Bank of America (NYC)"]
+      },
+      {
+        quote: "Lucas and Santi were my go-to mentors for recruiting. From mocks to outreach emails, what stood out was their consistency, availability, and commitment through the entire process. Incredible professionals and even better people.",
+        tags: ["Investment Banking", "Piper Sandler"]
       }
-    }
+      // Add more here anytime (they will automatically show)
+    ];
 
-    document.getElementById("yr").textContent = new Date().getFullYear();
+    const grid = document.getElementById("testimonialGrid");
+    testimonials.forEach(t => {
+      const card = document.createElement("div");
+      card.className = "tcard card";
+      card.innerHTML = `
+        <blockquote>“${t.quote}”</blockquote>
+        <div class="tmeta">
+          ${t.tags.map(x => `<span class="chip">${x}</span>`).join("")}
+        </div>
+      `;
+      grid.appendChild(card);
+    });
   </script>
 </body>
 </html>
