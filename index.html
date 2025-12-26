@@ -4,218 +4,452 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Offer Ready | Recruiting Mentorship</title>
-  <meta name="description" content="Structured, practical recruiting mentorship for IB, wealth management, and buy-side roles." />
+  <meta name="description" content="Offer Ready mentors students pursuing investment banking, wealth management, and buy-side roles with structured recruiting support." />
 
   <style>
     :root{
-      --text:#0f172a;
-      --muted:#475569;
-      --line:#e2e8f0;
+      --text:#0b1220;
+      --muted:#4b5563;
+      --line:#e5e7eb;
       --bg:#ffffff;
-      --soft:#f6f8ff;
+      --soft:#f5f7ff;
       --card:#ffffff;
-      --shadow: 0 12px 28px rgba(2,6,23,.08);
+      --shadow:0 14px 32px rgba(2,6,23,.10);
       --radius:18px;
       --max:1120px;
-      --accent:#0b2b72;
-      --accent2:#1f4fd6;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--text);
-      background: radial-gradient(1200px 600px at 15% 10%, #e9f0ff, transparent 60%),
-                  radial-gradient(1200px 700px at 85% 20%, #e6fbff, transparent 55%),
-                  var(--bg);
-    }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 64px;}
-    .card{background:var(--card); border:1px solid rgba(226,232,240,.9); border-radius:var(--radius); box-shadow: var(--shadow);}
-    .muted{color:var(--muted)}
-    .small{font-size:13px}
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:999px; border:1px solid rgba(226,232,240,.9); background:#fff; cursor:pointer; text-decoration:none; font-weight:650;}
-    .btn-primary{background:linear-gradient(135deg, var(--accent), #061a44); color:#fff; border:1px solid rgba(2,6,23,.12);}
-    .btn:active{transform:translateY(1px)}
-    .btn-row{display:flex; gap:10px; flex-wrap:wrap}
-    .pill{display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; border:1px solid rgba(226,232,240,.9); background:#fff; font-size:13px; color:var(--muted); font-weight:600}
 
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(140%) blur(10px);
+      --navy:#0b2b72;
+      --navy2:#0a1f4e;
+      --blue:#2563eb;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 450px at 85% 10%, rgba(37,99,235,.16), transparent 55%),
+        radial-gradient(780px 420px at 15% 55%, rgba(11,43,114,.12), transparent 55%),
+        var(--bg);
+      line-height:1.45;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width:var(--max); margin:0 auto; padding:18px 18px 70px; }
+
+    /* Top nav */
+    .nav{
+      position:sticky; top:0;
+      backdrop-filter:saturate(150%) blur(10px);
       background:rgba(255,255,255,.72);
-      border-bottom:1px solid rgba(226,232,240,.65);
+      border-bottom:1px solid rgba(229,231,235,.65);
+      z-index:50;
     }
-    .topbar-inner{max-width:var(--max); margin:0 auto; padding:12px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px;}
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
-    .logoMark{
-      width:30px; height:30px; border-radius:10px;
-      background: linear-gradient(135deg, #0b2b72, #1f4fd6);
-      box-shadow: 0 8px 18px rgba(31,79,214,.22);
-      display:grid; place-items:center;
+    .nav-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
     }
-    .logoMark svg{width:18px; height:18px}
-    .brand strong{display:block; font-size:14px; line-height:1.1}
-    .brand span{display:block; font-size:12px; color:var(--muted); line-height:1.1}
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 180px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background:linear-gradient(135deg, var(--blue), var(--navy));
+      box-shadow:0 10px 22px rgba(37,99,235,.28);
+      position:relative;
+    }
+    .logo:before{
+      content:"";
+      position:absolute; inset:9px 11px 9px 11px;
+      border-radius:8px;
+      background:rgba(255,255,255,.92);
+      clip-path:polygon(0 70%, 40% 70%, 40% 45%, 65% 45%, 65% 25%, 100% 25%, 100% 100%, 0 100%);
+      opacity:.92;
+    }
+    .brand h1{
+      margin:0;
+      font-size:14px;
+      line-height:1.1;
+      letter-spacing:-.2px;
+    }
+    .brand span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:2px;
+      font-weight:500;
+    }
+    .nav-links{
+      display:flex; align-items:center; gap:14px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.9);
+      font-weight:650;
+      font-size:13px;
+      color:#0f172a;
+      white-space:nowrap;
+    }
+    .pill.primary{
+      border:none;
+      background:linear-gradient(135deg, var(--navy), var(--navy2));
+      color:#fff;
+      box-shadow:0 14px 24px rgba(11,43,114,.24);
+    }
 
-    .hero{margin-top:16px; padding:22px; overflow:hidden; position:relative;}
-    .hero-grid{display:grid; grid-template-columns: 1.25fr .9fr; gap:16px; align-items:stretch;}
-    .hero h1{margin:0 0 10px; font-size:44px; letter-spacing:-.02em; line-height:1.03}
-    .hero p{margin:0 0 16px; font-size:16px; color:var(--muted); line-height:1.6}
-    .hero-left{padding:6px 4px}
-    .hero-right{padding:16px; display:flex; flex-direction:column; gap:12px; justify-content:space-between; background:linear-gradient(180deg,#ffffff, #fbfdff); border:1px solid rgba(226,232,240,.9); border-radius:var(--radius)}
-    .kpi{display:grid; gap:10px}
-    .kpi .item{padding:14px 14px; border-radius:14px; border:1px solid rgba(226,232,240,.9); background:#fff}
-    .kpi .item strong{display:block; font-size:14px}
-    .kpi .item span{display:block; font-size:13px; color:var(--muted); margin-top:3px}
+    /* Hero */
+    .hero{
+      padding:30px 0 10px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:22px;
+      align-items:start;
+    }
+    .hero-card{
+      background:rgba(255,255,255,.86);
+      border:1px solid rgba(229,231,235,.75);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-weight:700;
+      color:var(--navy);
+      background:rgba(37,99,235,.08);
+      border:1px solid rgba(37,99,235,.20);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+    }
+    .hero h2{
+      margin:12px 0 8px;
+      font-size: clamp(28px, 4.4vw, 42px);
+      letter-spacing:-.9px;
+      line-height:1.05;
+    }
+    .hero p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:15px;
+      max-width:60ch;
+    }
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:8px;
+    }
+    .secondary{
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:none;
+      color:#0f172a;
+    }
 
-    .section{margin-top:18px}
-    .section h2{margin:0 0 10px; font-size:26px; letter-spacing:-.01em}
-    .section p.lead{margin:0 0 14px; color:var(--muted); line-height:1.55}
+    .feature-list{
+      display:grid;
+      gap:12px;
+    }
+    .mini{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(229,231,235,.75);
+      border-radius:14px;
+      padding:14px 14px;
+      box-shadow:0 12px 24px rgba(2,6,23,.06);
+    }
+    .mini b{ display:block; font-size:14px; margin-bottom:2px; }
+    .mini span{ color:var(--muted); font-size:13px; }
 
-    /* placements banner */
-    .placements{padding:18px}
-    .placements-head{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap}
-    .placements .disclaimer{margin-top:10px; font-size:12px; color:var(--muted)}
-    .marquee{
-      margin-top:12px;
-      border-top:1px dashed rgba(226,232,240,.95);
-      padding-top:12px;
+    /* Sections */
+    .section{ margin-top:22px; }
+    .section h3{
+      margin:0 0 6px;
+      font-size:22px;
+      letter-spacing:-.4px;
+    }
+    .section p.lede{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .card{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(229,231,235,.78);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+
+    /* Placement banner */
+    .placements{
       overflow:hidden;
       position:relative;
     }
-    .marquee-track{
+    .marquee{
       display:flex;
-      gap:26px;
+      gap:12px;
       width:max-content;
       animation: scroll 22s linear infinite;
-      padding:4px 0 2px;
+      padding:8px 0 6px;
     }
-    .marquee:hover .marquee-track{animation-play-state: paused;}
-    .marquee-item{
-      display:flex; align-items:center; gap:10px;
+    .placements:hover .marquee{ animation-play-state:paused; }
+    .firm{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(229,231,235,.85);
+      background:rgba(255,255,255,.92);
+      font-weight:700;
+      font-size:13px;
+      color:#0f172a;
+      white-space:nowrap;
+    }
+    @keyframes scroll {
+      from{ transform: translateX(0); }
+      to{ transform: translateX(-50%); }
+    }
+    .disclaimer{
+      margin-top:8px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* How it works */
+    .steps{
+      display:grid;
+      gap:12px;
+    }
+    .step{
+      display:flex; gap:12px; align-items:flex-start;
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(229,231,235,.85);
+      background:rgba(255,255,255,.92);
+      box-shadow:0 12px 24px rgba(2,6,23,.06);
+    }
+    .num{
+      width:30px; height:30px; border-radius:10px;
+      background:rgba(37,99,235,.10);
+      border:1px solid rgba(37,99,235,.22);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; color:var(--navy);
+      flex:0 0 auto;
+    }
+    .step b{ display:block; margin-bottom:2px; }
+    .step span{ color:var(--muted); font-size:13px; }
+
+    /* What we work on */
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 12px; }
+    .chip{
       padding:8px 12px;
       border-radius:999px;
-      border:1px solid rgba(226,232,240,.9);
-      background:#fff;
-      font-weight:650;
+      border:1px solid rgba(229,231,235,.95);
+      background:rgba(255,255,255,.92);
+      font-weight:700;
+      font-size:12px;
+      color:#0f172a;
+    }
+    ul.clean{
+      margin:0; padding-left:18px;
       color:#111827;
-      white-space:nowrap;
+    }
+    ul.clean li{ margin:8px 0; }
+    ul.clean li b{ color:#0f172a; }
+    .subtle{
+      color:var(--muted);
+      margin-top:10px;
       font-size:13px;
     }
-    .dot{width:8px; height:8px; border-radius:999px; background:linear-gradient(135deg, #0b2b72, #1f4fd6); box-shadow:0 4px 10px rgba(31,79,214,.25)}
-    @keyframes scroll{
-      0%{transform:translateX(0)}
-      100%{transform:translateX(-50%)}
-    }
-
-    /* how it works */
-    .steps{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px}
-    .step{padding:16px}
-    .badge{
-      width:34px; height:34px; border-radius:10px;
-      background:#eef4ff; color:var(--accent);
-      display:grid; place-items:center; font-weight:800;
-      border:1px solid rgba(226,232,240,.9);
-      margin-bottom:10px;
-    }
-    .step strong{display:block; margin-bottom:6px}
-    .step p{margin:0; color:var(--muted); line-height:1.55}
-
-    /* what we work on */
-    .work{padding:18px}
-    .tags{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 12px}
-    .work ul{margin:0; padding-left:18px; color:var(--muted); line-height:1.75}
-    .work li{margin:6px 0}
-    .work b{color:var(--text)}
 
     /* CTA */
-    .cta{padding:18px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
-    .cta h3{margin:0; font-size:20px}
-    .cta p{margin:4px 0 0; color:var(--muted); line-height:1.5}
+    .cta{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .cta-actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .small{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+    .btn{
+      cursor:pointer;
+      border:none;
+      border-radius:999px;
+      padding:12px 14px;
+      font-weight:750;
+      font-size:13px;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, var(--navy), var(--navy2));
+      color:#fff;
+      box-shadow:0 14px 24px rgba(11,43,114,.24);
+    }
+    .btn.secondary{
+      background:#fff;
+      border:1px solid var(--line);
+      color:#0f172a;
+      box-shadow:none;
+    }
 
-    footer{margin-top:22px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center}
+    /* Footer */
+    footer{
+      margin-top:26px;
+      padding-top:16px;
+      border-top:1px solid rgba(229,231,235,.85);
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
 
+    /* Responsive */
     @media (max-width: 900px){
-      .hero-grid{grid-template-columns: 1fr;}
-      .hero h1{font-size:36px}
-      .steps{grid-template-columns: 1fr;}
+      .hero{ grid-template-columns: 1fr; }
+      .brand{ min-width:auto; }
+      .nav-links{ gap:10px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="./">
-        <div class="logoMark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M6 16V12" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
-            <path d="M11 16V9" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
-            <path d="M16 16V6" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
-          </svg>
-        </div>
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="./index.html" aria-label="Offer Ready Home">
+        <div class="logo" aria-hidden="true"></div>
         <div>
-          <strong>Offer Ready</strong>
+          <h1>Offer Ready</h1>
           <span>Recruiting mentorship</span>
         </div>
       </a>
 
-      <a class="btn btn-primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
+      <div class="nav-links">
+        <a class="pill" href="./testimonials.html">Testimonials</a>
+        <!-- About page later: create about.html and change this link -->
+        <a class="pill" href="./about.html">About</a>
+        <a class="pill primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
+      </div>
     </div>
   </div>
 
-  <main class="wrap">
+  <div class="container">
     <!-- HERO -->
-    <section class="hero card">
-      <div class="hero-grid">
-        <div class="hero-left">
-          <h1>Recruiting help that’s structured, practical, and built for real interviews.</h1>
-          <p>
-            Offer Ready mentors students pursuing <b>investment banking</b>, <b>wealth management</b>, and <b>buy-side</b> roles.
-            We focus on what drives outcomes: positioning, networking, technical readiness, and interview performance.
-          </p>
+    <section class="hero">
+      <div class="hero-card">
+        <div class="kicker">Structured • Practical • Built for real interviews</div>
+        <h2>Recruiting help that’s structured, practical, and built for real interviews.</h2>
+        <p>
+          Offer Ready mentors students pursuing <b>investment banking</b>, <b>wealth management</b>, and <b>buy-side</b> roles.
+          We focus on what drives outcomes: positioning, networking, technical readiness, and interview performance.
+        </p>
 
-          <div class="btn-row">
-            <a class="btn btn-primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
-            <a class="btn" href="./testimonials.html">See Testimonials</a>
-            <a class="btn" href="./about.html">Meet the Founders</a>
-          </div>
+        <div class="hero-actions">
+          <a class="pill primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
+          <a class="pill secondary" href="./testimonials.html">See Testimonials</a>
+          <!-- About later -->
+          <a class="pill secondary" href="./about.html">Meet the Founders</a>
+        </div>
+      </div>
+
+      <div class="feature-list">
+        <div class="mini">
+          <b>Clear weekly plan</b>
+          <span>So you always know the next step.</span>
+        </div>
+        <div class="mini">
+          <b>Interview-level reps</b>
+          <span>Mocks + feedback that sharpen fast.</span>
+        </div>
+        <div class="mini">
+          <b>Practical recruiting</b>
+          <span>Outreach, strategy, technicals, fit.</span>
         </div>
 
-        <div class="hero-right">
-          <div class="kpi">
-            <div class="item">
-              <strong>Clear weekly plan</strong>
-              <span>So you always know the next step.</span>
-            </div>
-            <div class="item">
-              <strong>Interview-level reps</strong>
-              <span>Mocks + feedback that sharpen fast.</span>
-            </div>
-            <div class="item">
-              <strong>Practical recruiting</strong>
-              <span>Outreach, strategy, technicals, fit.</span>
-            </div>
+        <!-- BOOK A CALL before anything testimonials-related -->
+        <div class="card section" style="margin-top:8px;">
+          <h3 style="margin:0 0 6px;">Book a quick intro call</h3>
+          <p class="lede" style="margin-bottom:12px;">
+            We’ll learn your goals, recruiting timeline, and current profile. If there’s a fit, we’ll outline next steps.
+          </p>
+
+          <div class="cta-actions">
+            <a class="btn primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book via Calendly</a>
+            <button class="btn secondary" id="copyLucas">Copy Lucas email</button>
+            <button class="btn secondary" id="copySanti">Copy Santi email</button>
           </div>
 
-          <div class="muted small">No fluff. Just the parts of recruiting that actually move the needle.</div>
+          <div class="small">Emails: <b>lmrichar@usc.edu</b> • <b>smrichar@usc.edu</b></div>
         </div>
       </div>
     </section>
 
-    <!-- PLACEMENTS (all firms, locations removed) -->
+    <!-- PLACEMENTS (banner) -->
     <section class="section">
-      <div class="placements card">
-        <div class="placements-head">
-          <div>
-            <h2 style="margin:0 0 6px;">Recent client internships / job placements</h2>
-            <div class="muted" style="line-height:1.55;">
-              Firm names shown as plain text for reference only — no logos, and no implication of affiliation or endorsement.
-            </div>
-          </div>
-          <a class="btn" href="./about.html">Learn about us</a>
-        </div>
+      <div class="card placements">
+        <h3>Recent client internships / job placements</h3>
+        <p class="lede">
+          Firm names shown as plain text for reference only — no logos, and no implication of affiliation or endorsement.
+        </p>
 
-        <div class="marquee" aria-label="Placements scrolling list">
-          <div class="marquee-track" id="marqueeTrack"></div>
+        <!-- Duplicate list twice so the marquee loops cleanly -->
+        <div style="overflow:hidden;">
+          <div class="marquee" aria-label="Firm placement ticker">
+            <!-- LIST A -->
+            <div class="firm">Goldman Sachs</div>
+            <div class="firm">Blackstone (REPE)</div>
+            <div class="firm">Evercore</div>
+            <div class="firm">Lazard</div>
+            <div class="firm">Rothschild</div>
+            <div class="firm">Bank of America</div>
+            <div class="firm">Bain Capital Credit</div>
+            <div class="firm">J.P. Morgan</div>
+            <div class="firm">UBS</div>
+            <div class="firm">Citi</div>
+            <div class="firm">Piper Sandler</div>
+            <div class="firm">PWP</div>
+            <div class="firm">Macquarie</div>
+            <div class="firm">Vista Equity Partners</div>
+            <div class="firm">RBC</div>
+
+            <!-- LIST B (repeat) -->
+            <div class="firm">Goldman Sachs</div>
+            <div class="firm">Blackstone (REPE)</div>
+            <div class="firm">Evercore</div>
+            <div class="firm">Lazard</div>
+            <div class="firm">Rothschild</div>
+            <div class="firm">Bank of America</div>
+            <div class="firm">Bain Capital Credit</div>
+            <div class="firm">J.P. Morgan</div>
+            <div class="firm">UBS</div>
+            <div class="firm">Citi</div>
+            <div class="firm">Piper Sandler</div>
+            <div class="firm">PWP</div>
+            <div class="firm">Macquarie</div>
+            <div class="firm">Vista Equity Partners</div>
+            <div class="firm">RBC</div>
+          </div>
         </div>
 
         <div class="disclaimer">
@@ -225,44 +459,52 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="section" id="how">
-      <h2>How it works</h2>
-      <p class="lead">A simple process that keeps you moving each week — with real execution and feedback.</p>
+    <section class="section">
+      <h3>How it works</h3>
+      <p class="lede">A simple process that keeps you moving each week — with real execution and feedback.</p>
 
       <div class="steps">
-        <div class="step card">
-          <div class="badge">1</div>
-          <strong>Diagnose</strong>
-          <p>We map your current profile, target roles, and timeline — then build a plan you can execute weekly.</p>
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <b>Diagnose</b>
+            <span>We map your current profile, target roles, and timeline — then build a plan you can execute weekly.</span>
+          </div>
         </div>
-        <div class="step card">
-          <div class="badge">2</div>
-          <strong>Build</strong>
-          <p>We tighten resume + story, train technicals, and create a networking pipeline that’s realistic and consistent.</p>
+
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <b>Build</b>
+            <span>We tighten resume + story, train technicals, and create a networking pipeline that’s realistic and consistent.</span>
+          </div>
         </div>
-        <div class="step card">
-          <div class="badge">3</div>
-          <strong>Perform</strong>
-          <p>We run mock interviews, fix weak spots fast, and help you show up calm, clear, and prepared.</p>
+
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <b>Perform</b>
+            <span>We run mock interviews, fix weak spots fast, and help you show up calm, clear, and prepared.</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- WHAT WE WORK ON -->
-    <section class="section" id="work">
-      <div class="work card">
-        <h2 style="margin:0 0 6px;">What we work on</h2>
-        <p class="lead" style="margin-bottom:10px;">High-signal support across the parts of recruiting that actually move the needle.</p>
+    <section class="section">
+      <div class="card">
+        <h3>What we work on</h3>
+        <p class="lede">High-signal support across the parts of recruiting that actually move the needle.</p>
 
-        <div class="tags">
-          <span class="pill">Positioning</span>
-          <span class="pill">Networking</span>
-          <span class="pill">Technicals</span>
-          <span class="pill">Mocks</span>
-          <span class="pill">Offer strategy</span>
+        <div class="chips">
+          <span class="chip">Positioning</span>
+          <span class="chip">Networking</span>
+          <span class="chip">Technicals</span>
+          <span class="chip">Mocks</span>
+          <span class="chip">Offer strategy</span>
         </div>
 
-        <ul>
+        <ul class="clean">
           <li><b>Resume + story positioning</b> (finance-ready, natural delivery, “why” that actually lands)</li>
           <li><b>Technical training</b> (IB core concepts + markets basics + question pattern recognition)</li>
           <li><b>Networking strategy + outreach scripts</b> (pipeline, follow-ups, conversion to calls)</li>
@@ -270,99 +512,74 @@
           <li><b>Offer decisions + next steps</b> (timing, communication, and keeping optionality)</li>
         </ul>
 
-        <p class="muted" style="margin:12px 0 0;">No fluff. Just the parts of recruiting that translate to actual interviews and offers.</p>
+        <div class="subtle">No fluff. Just the parts of recruiting that translate to actual interviews and offers.</div>
       </div>
     </section>
 
-    <!-- BOOK A CALL (before testimonials - testimonials are on a separate page) -->
+    <!-- CTA to Testimonials page -->
     <section class="section">
-      <div class="cta card">
+      <div class="card cta">
         <div>
-          <h3>Book a quick intro call</h3>
-          <p>We’ll learn your goals, recruiting timeline, and current profile. If there’s a fit, we’ll outline next steps.</p>
-          <div class="btn-row" style="margin-top:10px;">
-            <a class="btn btn-primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book via Calendly</a>
-            <button class="btn" id="copyLucas">Copy Lucas email</button>
-            <button class="btn" id="copySanti">Copy Santi email</button>
-            <a class="btn" href="./testimonials.html">View all testimonials</a>
-          </div>
-          <div class="muted small" style="margin-top:8px;">
-            Emails: <b>lmrichar@usc.edu</b> · <b>smrichar@usc.edu</b>
-          </div>
+          <h3 style="margin:0 0 6px;">Want to see outcomes + feedback?</h3>
+          <p class="lede" style="margin:0;">View the full testimonials page (all reviews + firm tags).</p>
         </div>
-        <a class="btn" href="./about.html">Meet the Founders</a>
+        <div class="cta-actions">
+          <a class="btn secondary" href="./testimonials.html">See all testimonials</a>
+          <a class="btn primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
+        </div>
       </div>
     </section>
 
     <footer>
-      <div>© <span id="year"></span> Offer Ready</div>
-      <div class="muted">One-file site · Free hosting</div>
+      <div>© <span id="yr"></span> Offer Ready</div>
+      <div>One-file site • Free hosting</div>
     </footer>
-  </main>
+  </div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Year
+    document.getElementById("yr").textContent = new Date().getFullYear();
 
+    // Copy buttons
+    const copy = async (text) => {
+      try{
+        await navigator.clipboard.writeText(text);
+        toast("Copied to clipboard");
+      }catch(e){
+        // fallback
+        const t = document.createElement("textarea");
+        t.value = text;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand("copy");
+        t.remove();
+        toast("Copied to clipboard");
+      }
+    };
+
+    document.getElementById("copyLucas").addEventListener("click", () => copy("lmrichar@usc.edu"));
+    document.getElementById("copySanti").addEventListener("click", () => copy("smrichar@usc.edu"));
+
+    // Small toast
     function toast(msg){
       const t = document.createElement("div");
       t.textContent = msg;
       t.style.position="fixed";
       t.style.left="50%";
-      t.style.bottom="22px";
+      t.style.bottom="18px";
       t.style.transform="translateX(-50%)";
       t.style.background="rgba(15,23,42,.92)";
       t.style.color="#fff";
-      t.style.padding="10px 14px";
+      t.style.padding="10px 12px";
       t.style.borderRadius="999px";
-      t.style.fontWeight="650";
+      t.style.fontWeight="700";
       t.style.fontSize="13px";
-      t.style.boxShadow="0 12px 30px rgba(2,6,23,.25)";
-      t.style.zIndex="99999";
+      t.style.boxShadow="0 14px 28px rgba(2,6,23,.25)";
+      t.style.zIndex="9999";
       document.body.appendChild(t);
-      setTimeout(()=>{ t.style.opacity="0"; }, 900);
-      setTimeout(()=>{ t.remove(); }, 1400);
+      setTimeout(()=>{ t.style.opacity="0"; t.style.transition="opacity .25s"; }, 1100);
+      setTimeout(()=> t.remove(), 1450);
     }
-
-    function copyText(text){
-      navigator.clipboard.writeText(text).then(() => toast("Copied!"));
-    }
-    document.getElementById("copyLucas").addEventListener("click", () => copyText("lmrichar@usc.edu"));
-    document.getElementById("copySanti").addEventListener("click", () => copyText("smrichar@usc.edu"));
-
-    /*
-      IMPORTANT:
-      Paste your COMPLETE firm list here (names only — no locations).
-      I included a strong default list + your priority firms.
-      If your full list is longer, just add them here and they will auto-show on the banner.
-    */
-    const firms = [
-      // priority firms (as requested)
-      "Goldman Sachs",
-      "Blackstone",
-      "Evercore",
-      "Lazard",
-      "Rothschild",
-      "Bank of America",
-
-      // common placements shown earlier / default
-      "J.P. Morgan",
-      "Morgan Stanley",
-      "UBS",
-      "RBC",                 // fixed (NOT RBS)
-      "Jefferies",
-      "Macquarie",
-      "Piper Sandler"
-    ];
-
-    // create seamless marquee loop by duplicating
-    const marquee = document.getElementById("marqueeTrack");
-    const twice = firms.concat(firms);
-    twice.forEach(name => {
-      const el = document.createElement("div");
-      el.className = "marquee-item";
-      el.innerHTML = '<span class="dot"></span>' + name;
-      marquee.appendChild(el);
-    });
   </script>
 </body>
 </html>
