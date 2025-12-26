@@ -2,524 +2,627 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Offer Ready | Finance Recruiting Mentorship</title>
-  <meta name="description" content="Offer Ready mentors students pursuing investment banking, wealth management, and buy-side roles with structured recruiting support." />
+  <meta name="description" content="Structured, practical recruiting mentorship for investment banking, wealth management, and buy-side roles." />
 
   <style>
     :root{
-      --text:#0f172a;
-      --muted:#475569;
-      --line:#e2e8f0;
-      --accent:#111827;
-      --accent2:#334155;
-      --soft:#f8fafc;
-      --shadow: 0 10px 25px rgba(2,6,23,.12);
+      --bg: #f6f8fc;
+      --card: #ffffff;
+      --text: #0b1220;
+      --muted: #556175;
+      --line: #e7eef7;
+      --accent: #1d4ed8;     /* blue */
+      --accent2:#0b2b72;     /* deep */
+      --soft: #f0f6ff;
+      --shadow: 0 12px 28px rgba(2, 6, 23, .10);
       --radius: 18px;
       --max: 1120px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);background:#fff}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
 
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      color:#fff;border:0;border-radius:999px;
-      padding:12px 18px;font-weight:650;box-shadow:var(--shadow);
-      cursor:pointer;
+    *{ box-sizing: border-box; }
+    html,body{ margin:0; padding:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--text); background: linear-gradient(180deg, #ffffff 0%, var(--bg) 80%); }
+    a{ color: inherit; text-decoration:none; }
+    .container{ width:min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    /* Top */
+    .topbar{
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-    .btn.secondary{background:#fff;color:var(--accent);border:1px solid var(--line);box-shadow:none}
-    .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);box-shadow:none}
-    .btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
-
     .nav{
-      position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);z-index:50
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 12px;
     }
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-    .brand{display:flex;gap:12px;align-items:center}
-    .pill{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+    .brand{ display:flex; align-items:center; gap:10px; font-weight: 800; letter-spacing: -.2px; }
+    .logoMark{
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      background: radial-gradient(120% 120% at 20% 20%, #60a5fa 0%, #1d4ed8 45%, #0b2b72 100%);
+      display:grid; place-items:center;
+      box-shadow: 0 10px 22px rgba(29,78,216,.20);
+    }
+    .logoMark svg{ width: 20px; height: 20px; }
+    .brandText{ display:flex; flex-direction:column; line-height:1.05; }
+    .brandText small{ color: var(--muted); font-weight: 600; font-size: 12px; }
 
+    .navLinks{ display:flex; align-items:center; gap: 14px; }
+    .pill{
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .btn{
+      border: 0;
+      cursor: pointer;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14px;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 10px;
+      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+      white-space:nowrap;
+    }
+    .btnPrimary{
+      background: linear-gradient(135deg, var(--accent2), #111827);
+      color:#fff;
+      box-shadow: 0 12px 22px rgba(2,6,23,.18);
+    }
+    .btnPrimary:active{ transform: translateY(1px); opacity:.95; }
+    .btnSoft{
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    /* Hero */
     .hero{
-      padding:56px 0 26px;
-      background: radial-gradient(800px 400px at 20% 20%, #e2e8f0, transparent),
-                  radial-gradient(900px 500px at 80% 10%, #cbd5e1, transparent);
+      padding: 44px 0 18px;
     }
-    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center}
-    h1{font-size:44px;line-height:1.07;margin:0 0 12px}
-    .lead{font-size:18px;line-height:1.5;color:var(--muted);margin:0 0 18px}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .headline{
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height: 1.03;
+      letter-spacing: -1px;
+      margin: 10px 0 10px;
+    }
+    .subhead{
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 62ch;
+      margin: 0 0 18px;
+    }
+    .ctaRow{ display:flex; gap: 12px; flex-wrap: wrap; align-items:center; margin-top: 14px; }
 
+    .cards3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .miniCard{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: 0 10px 22px rgba(2,6,23,.06);
+    }
+    .miniCard b{ display:block; margin-bottom: 4px; }
+    .miniCard span{ color: var(--muted); font-size: 13px; line-height: 1.35; }
+
+    /* Right panel */
+    .panel{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .panel h3{ margin: 0 0 10px; letter-spacing:-.3px; }
+    .panel p{ margin: 0 0 14px; color: var(--muted); line-height: 1.6; font-size: 14px;}
+    .panel .row{ display:flex; gap: 10px; flex-wrap:wrap; }
+    .panel .row .btn{ flex: 1 1 160px; }
+
+    /* Sections */
+    section{ padding: 26px 0; }
+    .sectionTitle{
+      font-size: 28px;
+      letter-spacing: -.6px;
+      margin: 0 0 8px;
+    }
+    .sectionSub{ margin: 0 0 18px; color: var(--muted); line-height:1.6; }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
     .card{
-      background:#fff;border:1px solid var(--line);
-      border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(2,6,23,.06)
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 22px rgba(2,6,23,.06);
     }
-    .card.dark{
-      background:linear-gradient(135deg,#0b1220,#111827);
-      color:#f8fafc;border:1px solid rgba(255,255,255,.12);
+    .card h4{ margin: 0 0 8px; letter-spacing: -.3px; }
+    .card p{ margin: 0; color: var(--muted); line-height:1.6; }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .stepNum{
+      display:inline-flex;
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      align-items:center; justify-content:center;
+      background: var(--soft);
+      border: 1px solid #dbeafe;
+      color: var(--accent2);
+      font-weight: 900;
+      margin-bottom: 8px;
     }
 
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
-    .kpi{padding:14px;border-radius:14px;background:var(--soft);border:1px solid var(--line)}
-    .kpi b{display:block;font-size:18px}
-    .kpi span{color:var(--muted);font-size:13px}
-
-    .section{padding:34px 0}
-    .section h2{font-size:26px;margin:0 0 12px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .feature h3{margin:0 0 6px;font-size:16px}
-    .feature p{margin:0;color:var(--muted);line-height:1.5}
-
-    .ticker{
-      overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-      background:#fff
+    /* What we work on (fix visibility: make it light + high contrast) */
+    .workOnWrap{
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 14px 26px rgba(2,6,23,.07);
     }
-    .ticker-track{
-      display:flex;gap:28px;white-space:nowrap;
+    .workList{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--text);
+    }
+    .workList li{ margin: 10px 0; color: var(--muted); line-height:1.55; }
+    .workTag{
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background:#fff;
+      font-weight: 700;
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    /* Clients / placements banner + marquee */
+    .banner{
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 14px 26px rgba(2,6,23,.06);
+      overflow:hidden;
+    }
+    .bannerTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .banner h3{ margin: 0; letter-spacing: -.4px; }
+    .banner p{ margin: 6px 0 0; color: var(--muted); line-height: 1.55; }
+    .disclaimer{
+      font-size: 12px;
+      color: var(--muted);
+      opacity: .9;
+      margin-top: 10px;
+    }
+
+    .marquee{
+      margin-top: 14px;
+      border-top: 1px dashed var(--line);
+      padding-top: 12px;
+      display:flex;
+      gap: 22px;
+      align-items:center;
+      overflow:hidden;
+      position: relative;
+    }
+    .track{
+      display:flex;
+      gap: 26px;
+      align-items:center;
+      white-space: nowrap;
       animation: scroll 22s linear infinite;
-      padding:12px 0
+      will-change: transform;
     }
-    .ticker .item{font-weight:650;color:#0f172a;opacity:.9}
-    @keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
-
-    .small{font-size:13px;color:var(--muted);line-height:1.5}
-    .testimonial{display:flex;flex-direction:column;gap:10px}
-    .testimonial .meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px;flex-wrap:wrap}
-    .badge{font-size:12px;border:1px solid var(--line);padding:4px 10px;border-radius:999px;background:#fff}
-    .hr{border:0;border-top:1px solid var(--line);margin:14px 0}
-
-    .footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:14px}
-    .pagehead{padding:26px 0 8px}
-    .pagehead h1{font-size:34px}
-
-    /* one-file page routing */
-    [data-page]{display:none}
-    [data-page].active{display:block}
-
-    /* simple “toast” alert */
-    .toast{
-      position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
-      background:#0b1220;color:#f8fafc;border:1px solid rgba(255,255,255,.14);
-      padding:10px 12px;border-radius:999px;box-shadow:var(--shadow);
-      opacity:0;pointer-events:none;transition:opacity .15s ease;
-      font-size:13px;
-      max-width:calc(100vw - 24px);
+    .firm{
+      font-weight: 800;
+      letter-spacing: -.2px;
+      color: #0b1220;
+      opacity: .88;
     }
-    .toast.show{opacity:1}
+    .dot{
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: #c7d2fe;
+      display:inline-block;
+    }
+    @keyframes scroll{
+      from{ transform: translateX(0); }
+      to{ transform: translateX(-50%); }
+    }
 
-    @media (max-width: 860px){
-      .hero-grid{grid-template-columns:1fr}
-      h1{font-size:36px}
-      .grid-3{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-      .kpis{grid-template-columns:1fr}
-      .nav-links{gap:12px}
+    /* Testimonials */
+    .testimonial{
+      position: relative;
+      padding: 18px;
+    }
+    .quote{
+      font-size: 16px;
+      line-height: 1.65;
+      color: #111827;
+      margin: 0 0 12px;
+    }
+    .chips{ display:flex; gap: 8px; flex-wrap: wrap; }
+    .chip{
+      border: 1px solid var(--line);
+      background:#fff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .readMore{
+      margin-top: 12px;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      font-weight: 800;
+      color: var(--accent2);
+      cursor: pointer;
+      user-select:none;
+    }
+
+    /* Footer */
+    footer{
+      padding: 30px 0 44px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footRow{ display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap: wrap; }
+    .footLeft{ display:flex; align-items:center; gap: 10px; }
+
+    /* Mobile */
+    @media (max-width: 920px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .cards3{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .navLinks{ gap: 10px; }
+      .pill{ display:none; } /* keep header clean on mobile */
     }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
-  <div class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#home" data-link aria-label="Go to home">
-        <!-- inline logo -->
-        <svg width="150" height="34" viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Offer Ready logo" style="height:34px;width:auto">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#111827"/>
-              <stop offset="1" stop-color="#334155"/>
-            </linearGradient>
-          </defs>
-          <g transform="translate(18,18)">
-            <rect x="0" y="0" width="104" height="104" rx="22" fill="url(#g)"/>
-            <path d="M40 56c0-12 9-22 22-22h10c12 0 22 10 22 22s-10 22-22 22H62" fill="none" stroke="#F8FAFC" stroke-width="10" stroke-linecap="round"/>
-            <path d="M62 78h16c10 0 18 8 18 18" fill="none" stroke="#F8FAFC" stroke-width="10" stroke-linecap="round"/>
-          </g>
-          <g transform="translate(150,44)">
-            <text x="0" y="28" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="34" font-weight="750" fill="#0F172A">
-              Offer Ready
-            </text>
-          </g>
-        </svg>
-        <span class="pill">Recruiting Mentorship</span>
-      </a>
+  <div class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="./">
+          <div class="logoMark" aria-hidden="true">
+            <!-- growth mark -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M6 16.6V18.5C6 19 6.4 19.4 6.9 19.4H8.4C8.9 19.4 9.3 19 9.3 18.5V14.9C9.3 14.4 8.9 14 8.4 14H6.9C6.4 14 6 14.4 6 14.9V16.6Z" fill="white" opacity=".92"/>
+              <path d="M10.35 12.1V18.5C10.35 19 10.75 19.4 11.25 19.4H12.75C13.25 19.4 13.65 19 13.65 18.5V11.1C13.65 10.6 13.25 10.2 12.75 10.2H11.25C10.75 10.2 10.35 10.6 10.35 11.1V12.1Z" fill="white" opacity=".92"/>
+              <path d="M14.7 9V18.5C14.7 19 15.1 19.4 15.6 19.4H17.1C17.6 19.4 18 19 18 18.5V8C18 7.5 17.6 7.1 17.1 7.1H15.6C15.1 7.1 14.7 7.5 14.7 8V9Z" fill="white" opacity=".92"/>
+            </svg>
+          </div>
+          <div class="brandText">
+            <span>Offer Ready</span>
+            <small>Recruiting mentorship</small>
+          </div>
+        </a>
 
-      <div class="nav-links">
-        <a href="#about" data-link>About</a>
-        <a href="#testimonials" data-link>Testimonials</a>
-        <a class="btn" href="#book" data-link>Book a Call</a>
+        <div class="navLinks">
+          <a class="pill" href="#how">How it works</a>
+          <a class="pill" href="#work">What we work on</a>
+          <a class="pill" href="#testimonials">Testimonials</a>
+          <a class="pill" href="./about.html">About</a>
+          <a class="btn btnPrimary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- HOME -->
-  <main class="active" data-page="home">
-    <header class="hero">
-      <div class="container hero-grid">
+  <main>
+    <div class="container hero">
+      <div class="heroGrid">
         <div>
-          <h1>Recruiting help that’s structured, practical, and built for real interviews.</h1>
-          <p class="lead">
+          <h1 class="headline">Recruiting help that’s structured, practical, and built for real interviews.</h1>
+          <p class="subhead">
             Offer Ready mentors students pursuing <b>investment banking</b>, <b>wealth management</b>, and <b>buy-side</b> roles.
             We focus on what drives outcomes: positioning, networking, technical readiness, and interview performance.
           </p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn" href="#book" data-link>Book a Call</a>
-            <a class="btn secondary" href="#testimonials" data-link>See Testimonials</a>
+
+          <div class="ctaRow">
+            <a class="btn btnPrimary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
+            <a class="btn btnSoft" href="#testimonials">See Testimonials</a>
+            <a class="btn btnSoft" href="./about.html">Meet the Founders</a>
           </div>
 
-          <div class="kpis">
-            <div class="kpi"><b>Clear weekly plan</b><span>So you always know the next step</span></div>
-            <div class="kpi"><b>Interview-level reps</b><span>Mocks + feedback that sharpen fast</span></div>
-            <div class="kpi"><b>Practical recruiting</b><span>Outreach, strategy, technicals, fit</span></div>
+          <div class="cards3">
+            <div class="miniCard">
+              <b>Clear weekly plan</b>
+              <span>So you always know the next step.</span>
+            </div>
+            <div class="miniCard">
+              <b>Interview-level reps</b>
+              <span>Mocks + feedback that sharpen fast.</span>
+            </div>
+            <div class="miniCard">
+              <b>Practical recruiting</b>
+              <span>Outreach, strategy, technicals, fit.</span>
+            </div>
           </div>
         </div>
 
-        <div class="card dark">
-          <h2 style="margin:0 0 10px">What we work on</h2>
-          <div class="small">
-            <ul style="margin:0;padding-left:18px">
-              <li>Resume + story positioning (finance-ready)</li>
-              <li>Technical training (IB + markets basics)</li>
-              <li>Networking strategy + outreach scripts</li>
-              <li>Mock interviews + debriefs</li>
-              <li>Offer decisions + next steps</li>
-            </ul>
-            <p class="small" style="opacity:.92;margin-top:12px">
-              No fluff. Just the parts of recruiting that actually move the needle.
-            </p>
-          </div>
-        </div>
-      </div>
-    </header>
+        <aside class="panel">
+          <h3>Book a quick intro call</h3>
+          <p>We’ll learn your goals, recruiting timeline, and current profile. If there’s a fit, we’ll outline next steps.</p>
 
-    <!-- firms ticker -->
-    <div class="ticker">
-      <div class="container">
-        <div class="ticker-track" aria-label="Firms where clients have received offers">
-          <span class="item">Evercore</span>
-          <span class="item">Goldman Sachs</span>
-          <span class="item">BofA</span>
-          <span class="item">J.P. Morgan</span>
-          <span class="item">Morgan Stanley</span>
-          <span class="item">UBS</span>
-          <span class="item">Citi</span>
-          <span class="item">Piper Sandler</span>
-          <span class="item">Perella Weinberg</span>
-          <span class="item">Rothschild &amp; Co</span>
-          <span class="item">Macquarie</span>
-          <span class="item">Blackstone</span>
-          <span class="item">Vista Equity Partners</span>
-          <span class="item">Bain Capital Credit</span>
-          <span class="item">Lazard</span>
-        </div>
-        <div class="small" style="padding:10px 0 12px">
-          Firm names shown as plain text for reference only. Not affiliated with or endorsed by any firm.
-        </div>
+          <div class="row">
+            <a class="btn btnPrimary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book via Calendly</a>
+            <button class="btn btnSoft" type="button" onclick="copyText('lmrichar@usc.edu')">Copy Lucas email</button>
+            <button class="btn btnSoft" type="button" onclick="copyText('smrichar@usc.edu')">Copy Santi email</button>
+          </div>
+
+          <p style="margin-top:12px; font-size:12px;">
+            Emails: <b>lmrichar@usc.edu</b> • <b>smrichar@usc.edu</b>
+          </p>
+        </aside>
       </div>
     </div>
 
-    <section class="section">
-      <div class="container">
-        <h2>How it works</h2>
-        <div class="grid-3">
-          <div class="card feature">
-            <h3>1) Diagnose</h3>
-            <p>We map your current profile, target roles, and timeline, then build a plan you can execute weekly.</p>
+    <div class="container">
+      <section id="how">
+        <h2 class="sectionTitle">How it works</h2>
+        <p class="sectionSub">A simple process that keeps you moving each week — with real execution and feedback.</p>
+
+        <div class="steps">
+          <div class="card">
+            <div class="stepNum">1</div>
+            <h4>Diagnose</h4>
+            <p>We map your current profile, target roles, and timeline — then build a plan you can execute weekly.</p>
           </div>
-          <div class="card feature">
-            <h3>2) Build</h3>
+          <div class="card">
+            <div class="stepNum">2</div>
+            <h4>Build</h4>
             <p>We tighten resume + story, train technicals, and create a networking pipeline that’s realistic and consistent.</p>
           </div>
-          <div class="card feature">
-            <h3>3) Perform</h3>
+          <div class="card">
+            <div class="stepNum">3</div>
+            <h4>Perform</h4>
             <p>We run mock interviews, fix weak spots fast, and help you show up calm, clear, and prepared.</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" style="padding-top:0">
-      <div class="container">
-        <div class="grid-2">
-          <div class="card">
-            <h2>Testimonials (highlights)</h2>
+      <section id="work">
+        <h2 class="sectionTitle">What we work on</h2>
+        <p class="sectionSub">High-signal support across the parts of recruiting that actually move the needle.</p>
 
-            <div class="testimonial">
-              <p>“Lucas and Santi played a massive role in me getting my offer. From hours of mock interviews to constant networking guidance, they were always available with actionable advice. I truly don’t think I would’ve landed the offer without them.”</p>
-              <div class="meta"><span class="badge">Investment Banking</span><span>BofA (NYC)</span></div>
-            </div>
-
-            <hr class="hr">
-
-            <div class="testimonial">
-              <p>“Lucas and Santi were hands down the best mentors I worked with. They refined my professional brand—emails, resume, and behaviorals—and pushed me with high-level technical questions. Every session I walked away sharper, more confident, and more independent in how I problem-solved.”</p>
-              <div class="meta"><span class="badge">Investment Banking</span><span>Macquarie (NY) • J.P. Morgan</span></div>
-            </div>
-
-            <div style="margin-top:14px">
-              <a class="btn secondary" href="#testimonials" data-link>Read more</a>
-            </div>
+        <div class="workOnWrap">
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;">
+            <span class="workTag">Positioning</span>
+            <span class="workTag">Networking</span>
+            <span class="workTag">Technicals</span>
+            <span class="workTag">Mocks</span>
+            <span class="workTag">Offer strategy</span>
           </div>
 
-          <div class="card">
-            <h2>Book a quick intro call</h2>
-            <p class="small">
-              We’ll learn your goals, recruiting timeline, and current profile. If there’s a fit, we’ll outline next steps.
-            </p>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-              <a class="btn" href="#book" data-link>Book a Call</a>
-              <button class="btn ghost" id="copyEmailBtn">Copy email</button>
-            </div>
-            <p class="small" style="margin-top:12px">
-              Email: <b id="emailText">offerreadymentorship@gmail.com</b>
-              <br><span class="small">(Change this later to your real business email.)</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ABOUT -->
-  <main data-page="about">
-    <div class="container pagehead">
-      <h1>About</h1>
-      <p class="lead">Offer Ready is a mentorship built by two brothers who’ve been through the process and care about doing it the right way.</p>
-    </div>
-
-    <section class="section" style="padding-top:0">
-      <div class="container grid-2">
-        <div class="card">
-          <h2>Our approach</h2>
-          <p class="small">
-            Recruiting can feel chaotic. We make it simple: clean positioning, consistent outreach, technical readiness, and interview reps.
-            The goal is to help you perform with confidence because you’ve done the work the right way.
-          </p>
-          <ul class="small" style="margin:0;padding-left:18px">
-            <li>Clear weekly execution plan</li>
-            <li>Story + fit answers that sound natural</li>
-            <li>Technicals taught for real interviews</li>
-            <li>Mocks, feedback, and accountability</li>
+          <ul class="workList">
+            <li><b>Resume + story positioning</b> (finance-ready, natural delivery, “why” that actually lands)</li>
+            <li><b>Technical training</b> (IB core concepts + markets basics + question pattern recognition)</li>
+            <li><b>Networking strategy + outreach scripts</b> (pipeline, follow-ups, conversion to calls)</li>
+            <li><b>Mock interviews + debriefs</b> (fit + technical, timed reps, feedback you can apply immediately)</li>
+            <li><b>Offer decisions + next steps</b> (timing, communication, and keeping optionality)</li>
           </ul>
-        </div>
 
-        <div class="card">
-          <h2>Founders</h2>
-          <p class="small"><b>Lucas Richard</b> — Co-founder</p>
-          <p class="small">USC Marshall (Finance). Background in investment banking. Focus areas: story positioning, technical prep, and mock interviews.</p>
-
-          <hr class="hr">
-
-          <p class="small"><b>Santi Richard</b> — Co-founder</p>
-          <p class="small">USC Marshall. Focus areas: recruiting strategy, networking systems, outreach messaging, and interview performance coaching.</p>
-
-          <p class="small" style="margin-top:12px">
-            <a class="btn" href="#book" data-link>Book a Call</a>
+          <p style="margin: 12px 0 0; color: var(--muted);">
+            No fluff. Just the parts of recruiting that translate to actual interviews and offers.
           </p>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <!-- TESTIMONIALS -->
-  <main data-page="testimonials">
-    <div class="container pagehead">
-      <h1>Testimonials</h1>
-      <p class="lead">A few notes from students we’ve worked with.</p>
-      <p class="small">If you prefer that we anonymize names or firms, we can change this instantly.</p>
-    </div>
-
-    <section class="section" style="padding-top:0">
-      <div class="container grid-3">
-
-        <div class="card testimonial">
-          <p>“Lucas and Santi played a massive role in me getting my offer. From hours of mock interviews to constant networking guidance, they were always available with actionable advice. I truly don’t think I would’ve landed the offer without them.”</p>
-          <div class="meta"><span class="badge">Investment Banking</span><span>BofA (NYC)</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“Lucas and Santi were my go-to mentors for recruiting. From mocks to outreach emails, what stood out was their consistency, availability, and commitment through the entire process. Incredible professionals and even better people.”</p>
-          <div class="meta"><span class="badge">Investment Banking</span><span>Piper Sandler</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“Lucas was a huge help during recruiting, from one-on-one technical tutoring to specific guidance on strategy and timelines. He was an outstanding mentor and I’m very grateful for the support.”</p>
-          <div class="meta"><span class="badge">Investment Banking</span><span>UBS (LA)</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“They supported me through both sophomore and junior recruiting. The mock interviews, question banks, and personalized guidance were exactly what I needed to land my offers. They were also invaluable for networking, offer decisions, and day-to-day advice.”</p>
-          <div class="meta"><span class="badge">IB / Buy-side</span><span>Blackstone REPE • Evercore • BofA • Bain Capital Credit</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“Lucas was an incredible mentor throughout recruiting. He was flexible with his time and always went out of his way to help, whether it was mocks, insights, or honest feedback. His support made a huge difference in my confidence.”</p>
-          <div class="meta"><span class="badge">Investment Banking</span><span>RBS (NY)</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“The mentorship was tailored to my needs. Even when I couldn’t articulate what was wrong, they found the root issue and fixed it. It helped me build strong ‘Tell me about yourself’ and ‘Why IB’ answers and make better judgments as recruiting intensified.”</p>
-          <div class="meta"><span class="badge">Investment Banking</span><span>Perella Weinberg Partners (LA)</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“Coming into banking with no finance background, Lucas broke down the basics and guided me through the process. From technicals to behaviorals, I felt supported every step of the way.”</p>
-          <div class="meta"><span class="badge">Investment Banking</span><span>Citi (SF)</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“You weren’t just tutors—you provided a layer of support that got me through recruiting. From motivational advice to mocks, I always knew I could call or text when things got stressful. Thank you for everything you poured into helping me earn my offer.”</p>
-          <div class="meta"><span class="badge">Investment Banking</span><span>Rothschild (NY)</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“Santi and Lucas were extremely helpful during my recruiting process. Whenever I had questions, they knew exactly how to help based on their experience. Working with them is the best way to be fully prepared for IB recruiting.”</p>
-          <div class="meta"><span class="badge">Investment Banking</span><span>Goldman Sachs (NY)</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“Santi and Lucas were monumental to my journey. The mocks, insights, and support changed my trajectory, and I’m incredibly grateful to have them as mentors and friends.”</p>
-          <div class="meta"><span class="badge">Private Equity</span><span>Vista Equity Partners</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“Lucas and Santi were hands down the best mentors I worked with. They refined my professional brand—emails, resume, and behaviorals—and pushed me with high-level technical questions. Every session I walked away sharper, more confident, and more independent in how I problem-solved.”</p>
-          <div class="meta"><span class="badge">Investment Banking</span><span>Macquarie (NY) • J.P. Morgan</span></div>
-        </div>
-
-        <div class="card testimonial">
-          <p>“I decided to pursue IB late and felt behind. Their mentorship was invaluable: countless mocks, fast progress in both technicals and behaviorals, and extremely responsive support. Recruiting is tough and different for everyone—having two mentors who’d been through it successfully gave me real confidence.”</p>
-          <div class="meta"><span class="badge">Investment Banking</span><span>Rothschild (LA) TMT</span></div>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- BOOK -->
-  <main data-page="book">
-    <div class="container pagehead">
-      <h1>Book a call</h1>
-      <p class="lead">Quick intro call to align on your goals, timeline, and next steps.</p>
-    </div>
-
-    <section class="section" style="padding-top:0">
-      <div class="container grid-2">
-        <div class="card">
-          <h2 style="margin-top:0">Right now</h2>
-          <p class="small">While you’re setting up Calendly, the fastest way to schedule is email.</p>
-
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-            <a class="btn" id="emailBtn" href="mailto:offerreadymentorship@gmail.com?subject=Offer%20Ready%20Intro%20Call&body=Hi%20Lucas%20and%20Santi%2C%0A%0AI%E2%80%99d%20love%20to%20set%20up%20a%20quick%20intro%20call.%20Here%E2%80%99s%20my%20current%20situation%3A%0A-%20School%2FYear%3A%0A-%20Target%20roles%3A%0A-%20Timeline%3A%0A-%20Anything%20else%3A%0A%0AThank%20you%21">
-              Email to book
-            </a>
-            <button class="btn ghost" id="copyEmailBtn2">Copy email</button>
+      <section id="clients">
+        <div class="banner">
+          <div class="bannerTop">
+            <div>
+              <h3>Recent client internships / job placements</h3>
+              <p>Firm names shown as plain text for reference only — no logos, and no implication of affiliation or endorsement.</p>
+            </div>
+            <a class="btn btnSoft" href="./about.html">Learn about us</a>
           </div>
 
-          <p class="small" style="margin-top:12px">
-            Email: <b>offerreadymentorship@gmail.com</b>
-            <br><span class="small">(Swap this to your real email anytime.)</span>
+          <div class="marquee" aria-label="Firm names marquee">
+            <!-- duplicate the track so it loops smoothly -->
+            <div class="track">
+              <span class="firm">Goldman Sachs</span><span class="dot"></span>
+              <span class="firm">Bank of America</span><span class="dot"></span>
+              <span class="firm">J.P. Morgan</span><span class="dot"></span>
+              <span class="firm">Morgan Stanley</span><span class="dot"></span>
+              <span class="firm">Evercore</span><span class="dot"></span>
+              <span class="firm">Piper Sandler</span><span class="dot"></span>
+              <span class="firm">Macquarie</span><span class="dot"></span>
+              <span class="firm">UBS</span><span class="dot"></span>
+              <span class="firm">Lazard</span><span class="dot"></span>
+              <span class="firm">Jefferies</span><span class="dot"></span>
+
+              <span class="firm">Goldman Sachs</span><span class="dot"></span>
+              <span class="firm">Bank of America</span><span class="dot"></span>
+              <span class="firm">J.P. Morgan</span><span class="dot"></span>
+              <span class="firm">Morgan Stanley</span><span class="dot"></span>
+              <span class="firm">Evercore</span><span class="dot"></span>
+              <span class="firm">Piper Sandler</span><span class="dot"></span>
+              <span class="firm">Macquarie</span><span class="dot"></span>
+              <span class="firm">UBS</span><span class="dot"></span>
+              <span class="firm">Lazard</span><span class="dot"></span>
+              <span class="firm">Jefferies</span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="disclaimer">
+            Disclaimer: Offer Ready is not affiliated with, sponsored by, or endorsed by any firm listed above.
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials">
+        <h2 class="sectionTitle">Testimonials</h2>
+        <p class="sectionSub">A few notes from students we’ve worked with. If you prefer we anonymize names or firms, we can do that instantly.</p>
+
+        <div class="grid2">
+          <div class="card testimonial">
+            <p class="quote">“Lucas and Santi played a massive role in me getting my offer. From hours of mock interviews to constant networking guidance, they were always available with actionable advice.”</p>
+            <div class="chips">
+              <span class="chip">Investment Banking</span>
+              <span class="chip">BofA (NYC)</span>
+            </div>
+          </div>
+
+          <div class="card testimonial">
+            <p class="quote">“Lucas and Santi were my go-to mentors for recruiting. From mocks to outreach emails, what stood out was their consistency, availability, and commitment through the entire process.”</p>
+            <div class="chips">
+              <span class="chip">Investment Banking</span>
+              <span class="chip">Piper Sandler</span>
+            </div>
+          </div>
+
+          <div class="card testimonial" id="t3" style="display:none;">
+            <p class="quote">“They refined my professional brand—emails, resume, and behaviorals—and pushed me with high-level technical questions. Every session I walked away sharper and more confident.”</p>
+            <div class="chips">
+              <span class="chip">Investment Banking</span>
+              <span class="chip">Macquarie (NY)</span>
+              <span class="chip">J.P. Morgan</span>
+            </div>
+          </div>
+
+          <div class="card testimonial">
+            <p class="quote"><b>Want more?</b> We can share additional references privately on a call.</p>
+            <div class="readMore" onclick="toggleMore()">
+              <span id="moreText">Read more</span> →
+            </div>
+            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn btnPrimary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
+              <button class="btn btnSoft" type="button" onclick="copyText('lmrichar@usc.edu')">Copy Lucas email</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="card">
+          <h2 class="sectionTitle" style="margin-bottom:6px;">Contact</h2>
+          <p class="sectionSub" style="margin-bottom:14px;">Book a call or reach out directly. Fastest response is email.</p>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btnPrimary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
+            <button class="btn btnSoft" type="button" onclick="copyText('lmrichar@usc.edu')">Copy Lucas email</button>
+            <button class="btn btnSoft" type="button" onclick="copyText('smrichar@usc.edu')">Copy Santi email</button>
+            <a class="btn btnSoft" href="./about.html">About</a>
+          </div>
+
+          <p style="margin: 14px 0 0; color: var(--muted); font-size: 13px;">
+            Lucas: <b>lmrichar@usc.edu</b> • Santi: <b>smrichar@usc.edu</b>
           </p>
+        </div>
+      </section>
+    </div>
 
-          <hr class="hr">
-
-          <h2>Later (Calendly)</h2>
-          <p class="small">
-            When you have your Calendly link, paste it into the code once and the “Book” button can open it.
-            If you send me the link, I’ll update this file for you instantly.
-          </p>
-
-          <button class="btn secondary" aria-disabled="true" id="calBtn">Calendly link coming soon</button>
+    <footer>
+      <div class="container footRow">
+        <div class="footLeft">
+          <div class="logoMark" aria-hidden="true" style="width:28px;height:28px;border-radius:10px;">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M6 16.6V18.5C6 19 6.4 19.4 6.9 19.4H8.4C8.9 19.4 9.3 19 9.3 18.5V14.9C9.3 14.4 8.9 14 8.4 14H6.9C6.4 14 6 14.4 6 14.9V16.6Z" fill="white" opacity=".92"/>
+              <path d="M10.35 12.1V18.5C10.35 19 10.75 19.4 11.25 19.4H12.75C13.25 19.4 13.65 19 13.65 18.5V11.1C13.65 10.6 13.25 10.2 12.75 10.2H11.25C10.75 10.2 10.35 10.6 10.35 11.1V12.1Z" fill="white" opacity=".92"/>
+              <path d="M14.7 9V18.5C14.7 19 15.1 19.4 15.6 19.4H17.1C17.6 19.4 18 19 18 18.5V8C18 7.5 17.6 7.1 17.1 7.1H15.6C15.1 7.1 14.7 7.5 14.7 8V9Z" fill="white" opacity=".92"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-weight:900;color:var(--text);">© <span id="yr"></span> Offer Ready</div>
+            <div>One-file site • Free hosting</div>
+          </div>
         </div>
 
-        <div class="card">
-          <h2 style="margin-top:0">What we cover on the call</h2>
-          <ul class="small" style="margin:0;padding-left:18px">
-            <li>Your background + target roles (IB / WM / buy-side)</li>
-            <li>Timeline + what’s realistic this cycle</li>
-            <li>Resume/story positioning priorities</li>
-            <li>Networking plan (outreach → calls → referrals)</li>
-            <li>Technical prep approach + mock cadence</li>
-          </ul>
-          <p class="small" style="margin-top:12px">
-            We keep it straightforward and execution-focused.
-          </p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="pill" href="./about.html">About</a>
+          <a class="pill" href="#testimonials">Testimonials</a>
+          <a class="pill" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
         </div>
       </div>
-    </section>
+    </footer>
   </main>
-
-  <footer class="footer">
-    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div>© <span id="y"></span> Offer Ready</div>
-      <div class="small">One-file site • Free hosting</div>
-    </div>
-  </footer>
-
-  <div class="toast" id="toast">Copied.</div>
 
   <script>
-    // year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // ticker loop
-    (function(){
-      const track = document.querySelector('.ticker-track');
-      if(!track) return;
-      const items = Array.from(track.children).map(el => el.cloneNode(true));
-      items.forEach(clone => track.appendChild(clone));
-    })();
-
-    // hash router (#home, #about, #testimonials, #book)
-    function setPageFromHash(){
-      const hash = (location.hash || '#home').replace('#','');
-      document.querySelectorAll('[data-page]').forEach(p => p.classList.remove('active'));
-      const target = document.querySelector('[data-page="' + hash + '"]') || document.querySelector('[data-page="home"]');
-      target.classList.add('active');
-      window.scrollTo(0,0);
-    }
-    window.addEventListener('hashchange', setPageFromHash);
-    document.querySelectorAll('[data-link]').forEach(a=>{
-      a.addEventListener('click', () => setTimeout(setPageFromHash, 0));
-    });
-    setPageFromHash();
-
-    // toast helper
-    const toast = document.getElementById('toast');
-    let toastTimer = null;
-    function showToast(msg){
-      toast.textContent = msg;
-      toast.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(()=>toast.classList.remove('show'), 1100);
-    }
-
-    // copy email buttons
-    const email = "offerreadymentorship@gmail.com";
-    function copyEmail(){
+    function copyText(text){
       if (navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(email).then(()=>showToast("Email copied."));
+        navigator.clipboard.writeText(text).then(() => toast("Copied ✓"));
       } else {
-        showToast("Copy not supported.");
+        const el = document.createElement("textarea");
+        el.value = text;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand("copy");
+        document.body.removeChild(el);
+        toast("Copied ✓");
       }
     }
-    const c1 = document.getElementById('copyEmailBtn');
-    const c2 = document.getElementById('copyEmailBtn2');
-    if (c1) c1.addEventListener('click', copyEmail);
-    if (c2) c2.addEventListener('click', copyEmail);
 
-    // Calendly placeholder
-    const calBtn = document.getElementById('calBtn');
-    if (calBtn){
-      calBtn.addEventListener('click', (e)=>{
-        e.preventDefault();
-        showToast("Add your Calendly link later.");
-      });
+    function toast(msg){
+      const t = document.createElement("div");
+      t.textContent = msg;
+      t.style.position="fixed";
+      t.style.left="50%";
+      t.style.bottom="22px";
+      t.style.transform="translateX(-50%)";
+      t.style.background="rgba(17,24,39,.92)";
+      t.style.color="#fff";
+      t.style.padding="10px 14px";
+      t.style.borderRadius="999px";
+      t.style.fontWeight="800";
+      t.style.fontSize="13px";
+      t.style.boxShadow="0 12px 24px rgba(0,0,0,.18)";
+      t.style.zIndex="9999";
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.style.opacity="0"; t.style.transition="opacity .2s"; }, 1100);
+      setTimeout(()=>{ t.remove(); }, 1400);
     }
+
+    function toggleMore(){
+      const t3 = document.getElementById("t3");
+      const label = document.getElementById("moreText");
+      const isHidden = (t3.style.display === "none");
+      t3.style.display = isHidden ? "block" : "none";
+      label.textContent = isHidden ? "Hide" : "Read more";
+    }
+
+    document.getElementById("yr").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
