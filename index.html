@@ -221,6 +221,24 @@
       color:#0f172a;
       white-space:nowrap;
     }
+
+    /* NEW: logo pills */
+    .firm.logo{
+      padding:10px 16px;
+    }
+    .firm.logo img{
+      height:22px;
+      width:auto;
+      display:block;
+      opacity:.92;
+      filter: grayscale(100%);
+      transition: opacity .2s ease, filter .2s ease;
+    }
+    .firm.logo img:hover{
+      opacity:1;
+      filter: grayscale(0%);
+    }
+
     @keyframes scroll {
       from{ transform: translateX(0); }
       to{ transform: translateX(-50%); }
@@ -389,11 +407,7 @@
 
           <div class="cta-actions">
             <a class="btn primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book via Calendly</a>
-            <button class="btn secondary" id="copyLucas">Copy Lucas email</button>
-            <button class="btn secondary" id="copySanti">Copy Santi email</button>
           </div>
-
-          <div class="small">Emails: <b>lmrichar@usc.edu</b> • <b>smrichar@usc.edu</b></div>
         </div>
       </div>
     </section>
@@ -401,48 +415,43 @@
     <section class="section">
       <div class="card placements">
         <h3>Recent client internships / job placements</h3>
-      
 
         <div style="overflow:hidden;">
           <div class="marquee" aria-label="Firm placement ticker">
             <!-- LIST A -->
-            <div class="firm">Goldman Sachs</div>
-            <div class="firm">Blackstone</div>
-            <div class="firm">Evercore</div>
-            <div class="firm">Lazard</div>
-            <div class="firm">Rothschild</div>
-            <div class="firm">Bank of America</div>
-            <div class="firm">Bain Capital Credit</div>
-            <div class="firm">J.P. Morgan</div>
-            <div class="firm">UBS</div>
-            <div class="firm">Citi</div>
-            <div class="firm">Piper Sandler</div>
-            <div class="firm">PWP</div>
-            <div class="firm">Macquarie</div>
-            <div class="firm">Vista Equity Partners</div>
-            <div class="firm">RBC</div>
+            <div class="firm logo"><img src="assets/logos/goldman-sachs.svg" alt="Goldman Sachs" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/blackstone.svg" alt="Blackstone" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/evercore.svg" alt="Evercore" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/lazard.svg" alt="Lazard" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/rothschild.svg" alt="Rothschild" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/bank-of-america.svg" alt="Bank of America" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/bain-capital.svg" alt="Bain Capital" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/jpmorgan.svg" alt="J.P. Morgan" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/ubs.svg" alt="UBS" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/citi.svg" alt="Citi" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/piper-sandler.svg" alt="Piper Sandler" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/pwp.svg" alt="PWP" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/macquarie.svg" alt="Macquarie" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/vista.svg" alt="Vista Equity Partners" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/rbc.svg" alt="RBC" loading="lazy"></div>
 
             <!-- LIST B (repeat) -->
-            <div class="firm">Goldman Sachs</div>
-            <div class="firm">Blackstone</div>
-            <div class="firm">Evercore</div>
-            <div class="firm">Lazard</div>
-            <div class="firm">Rothschild</div>
-            <div class="firm">Bank of America</div>
-            <div class="firm">Bain Capital Credit</div>
-            <div class="firm">J.P. Morgan</div>
-            <div class="firm">UBS</div>
-            <div class="firm">Citi</div>
-            <div class="firm">Piper Sandler</div>
-            <div class="firm">PWP</div>
-            <div class="firm">Macquarie</div>
-            <div class="firm">Vista Equity Partners</div>
-            <div class="firm">RBC</div>
+            <div class="firm logo"><img src="assets/logos/goldman-sachs.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/blackstone.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/evercore.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/lazard.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/rothschild.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/bank-of-america.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/bain-capital.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/jpmorgan.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/ubs.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/citi.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/piper-sandler.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/pwp.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/macquarie.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/vista.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm logo"><img src="assets/logos/rbc.svg" alt="" aria-hidden="true" loading="lazy"></div>
           </div>
-        </div>
-
-        <div class="disclaimer">
-          Disclaimer: Offer Ready is not affiliated with, sponsored by, or endorsed by any firm listed above.
         </div>
       </div>
     </section>
@@ -492,14 +501,12 @@
         </div>
 
         <ul class="clean">
-          <li><b>Resume + story positioning</b> (finance-ready, natural delivery, “why” that actually lands)</li>
-          <li><b>Technical training</b> (IB core concepts + markets basics + question pattern recognition)</li>
-          <li><b>Networking strategy + outreach scripts</b> (pipeline, follow-ups, conversion to calls)</li>
-          <li><b>Mock interviews + debriefs</b> (fit + technical, timed reps, feedback you can apply immediately)</li>
-          <li><b>Offer decisions + next steps</b> (timing, communication, and keeping optionality)</li>
+          <li><b>Resume + story positioning:</b> finance-ready structure, natural delivery, and a “why” that lands</li>
+          <li><b>Technical training:</b> IB fundamentals, markets basics, and pattern recognition for common question types</li>
+          <li><b>Networking strategy + outreach scripts:</b> pipeline design, follow-ups, and converting outreach into calls</li>
+          <li><b>Mock interviews + debriefs:</b> fit + technical reps, timed practice, and actionable feedback</li>
+          <li><b>Offer decisions + next steps:</b> timing, communication, and maintaining optionality</li>
         </ul>
-
-        <div class="subtle">No fluff. Just the parts of recruiting that translate to actual interviews and offers.</div>
       </div>
     </section>
 
@@ -507,14 +514,17 @@
       <div class="card cta">
         <div>
           <h3 style="margin:0 0 6px;">Want to see outcomes + feedback?</h3>
-          <p class="lede" style="margin:0;">View the full testimonials page (all reviews + firm tags).</p>
         </div>
         <div class="cta-actions">
           <a class="btn secondary" href="./testimonials.html">See all testimonials</a>
-          <a class="btn primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
         </div>
       </div>
     </section>
+
+    <!-- Disclaimer moved to bottom of front page -->
+    <div class="disclaimer" style="margin-top:18px;">
+      Disclaimer: Offer Ready is not affiliated with, sponsored by, or endorsed by any firm listed on this website.
+    </div>
 
     <footer>
       <div>© <span id="yr"></span> Offer Ready</div>
@@ -524,44 +534,6 @@
 
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
-
-    const copy = async (text) => {
-      try{
-        await navigator.clipboard.writeText(text);
-        toast("Copied to clipboard");
-      }catch(e){
-        const t = document.createElement("textarea");
-        t.value = text;
-        document.body.appendChild(t);
-        t.select();
-        document.execCommand("copy");
-        t.remove();
-        toast("Copied to clipboard");
-      }
-    };
-
-    document.getElementById("copyLucas").addEventListener("click", () => copy("lmrichar@usc.edu"));
-    document.getElementById("copySanti").addEventListener("click", () => copy("smrichar@usc.edu"));
-
-    function toast(msg){
-      const t = document.createElement("div");
-      t.textContent = msg;
-      t.style.position="fixed";
-      t.style.left="50%";
-      t.style.bottom="18px";
-      t.style.transform="translateX(-50%)";
-      t.style.background="rgba(15,23,42,.92)";
-      t.style.color="#fff";
-      t.style.padding="10px 12px";
-      t.style.borderRadius="999px";
-      t.style.fontWeight="700";
-      t.style.fontSize="13px";
-      t.style.boxShadow="0 14px 28px rgba(2,6,23,.25)";
-      t.style.zIndex="9999";
-      document.body.appendChild(t);
-      setTimeout(()=>{ t.style.opacity="0"; t.style.transition="opacity .25s"; }, 1100);
-      setTimeout(()=> t.remove(), 1450);
-    }
   </script>
 </body>
 </html>
