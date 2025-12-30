@@ -61,7 +61,7 @@
       min-width: 180px;
     }
 
-    /* UPDATED LOGO (more consistent on iOS Safari) */
+    /* Logo (consistent on iOS Safari) */
     .logo{
       width:34px; height:34px; border-radius:10px;
       background:linear-gradient(135deg, var(--blue), var(--navy));
@@ -128,6 +128,7 @@
       border:1px solid rgba(229,231,235,.75);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
+     _toggle;
       padding:22px;
     }
     .kicker{
@@ -197,44 +198,50 @@
       padding:18px;
     }
 
-    /* Placement banner */
+    /* ===== Placement logo banner (bigger, ~6 visible, not circular) ===== */
     .placements{ overflow:hidden; position:relative; }
+
+    .marquee-window{
+      max-width:780px;          /* controls how many logos show at once */
+      margin:12px auto 0;
+      overflow:hidden;
+      padding:4px 0;
+    }
+
     .marquee{
       display:flex;
-      gap:12px;
+      gap:20px;
       width:max-content;
-      animation: scroll 22s linear infinite;
+      animation: scroll 32s linear infinite;
+      align-items:center;
       padding:8px 0 6px;
     }
     .placements:hover .marquee{ animation-play-state:paused; }
-    .firm{
-      display:inline-flex;
+
+    .firm.logo{
+      display:flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
-      padding:10px 14px;
-      border-radius:999px;
+      padding:16px 20px;
+      height:76px;              /* overall “banner tile” height */
+      border-radius:14px;
       border:1px solid rgba(229,231,235,.85);
       background:rgba(255,255,255,.92);
-      font-weight:700;
-      font-size:13px;
-      color:#0f172a;
-      white-space:nowrap;
+      box-shadow:0 10px 22px rgba(2,6,23,.06);
+      flex:0 0 auto;
     }
 
-    /* NEW: logo pills */
-    .firm.logo{
-      padding:10px 16px;
-    }
     .firm.logo img{
-      height:22px;
+      height:46px;              /* logo size */
       width:auto;
+      max-width:170px;
+      object-fit:contain;
       display:block;
       opacity:.92;
       filter: grayscale(100%);
       transition: opacity .2s ease, filter .2s ease;
     }
-    .firm.logo img:hover{
+    .firm.logo:hover img{
       opacity:1;
       filter: grayscale(0%);
     }
@@ -243,8 +250,9 @@
       from{ transform: translateX(0); }
       to{ transform: translateX(-50%); }
     }
+
     .disclaimer{
-      margin-top:8px;
+      margin-top:10px;
       font-size:12px;
       color:var(--muted);
     }
@@ -293,12 +301,12 @@
       font-size:13px;
     }
 
-    /* CTA */
+    /* CTA / Buttons */
     .cta{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap:14px;
+      gap:12px;
       flex-wrap:wrap;
     }
     .cta-actions{ display:flex; gap:10px; flex-wrap:wrap; }
@@ -316,6 +324,7 @@
       font-size:13px;
       display:inline-flex; align-items:center; justify-content:center;
       gap:8px;
+      background:#fff;
     }
     .btn.primary{
       background:linear-gradient(135deg, var(--navy), var(--navy2));
@@ -345,6 +354,18 @@
       .hero{ grid-template-columns: 1fr; }
       .brand{ min-width:auto; }
       .nav-links{ gap:10px; }
+
+      /* On mobile, show fewer/larger tiles cleanly */
+      .marquee-window{ max-width: 100%; }
+      .firm.logo{ height:72px; padding:14px 16px; }
+      .firm.logo img{ height:44px; max-width:160px; }
+    }
+
+    @media (max-width: 520px){
+      .nav-inner{ flex-wrap:wrap; }
+      .cta{ gap:10px; }
+      .firm.logo{ height:68px; }
+      .firm.logo img{ height:42px; }
     }
   </style>
 </head>
@@ -407,7 +428,11 @@
 
           <div class="cta-actions">
             <a class="btn primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book via Calendly</a>
+            <button class="btn secondary" id="copyLucas">Copy Lucas email</button>
+            <button class="btn secondary" id="copySanti">Copy Santi email</button>
           </div>
+
+          <div class="small">Emails: <b>lmrichar@usc.edu</b> • <b>smrichar@usc.edu</b></div>
         </div>
       </div>
     </section>
@@ -416,8 +441,9 @@
       <div class="card placements">
         <h3>Recent client internships / job placements</h3>
 
-        <div style="overflow:hidden;">
-          <div class="marquee" aria-label="Firm placement ticker">
+        <!-- New: constrained window so logos are bigger and fewer are visible at once -->
+        <div class="marquee-window" aria-label="Firm placement ticker">
+          <div class="marquee">
             <!-- LIST A -->
             <div class="firm logo"><img src="assets/goldman-sachs.png" alt="Goldman Sachs" loading="lazy"></div>
             <div class="firm logo"><img src="assets/blackstone.png" alt="Blackstone" loading="lazy"></div>
@@ -452,6 +478,10 @@
             <div class="firm logo"><img src="assets/vista.png" alt="" aria-hidden="true" loading="lazy"></div>
             <div class="firm logo"><img src="assets/rbc.png" alt="" aria-hidden="true" loading="lazy"></div>
           </div>
+        </div>
+
+        <div class="disclaimer">
+          Disclaimer: Offer Ready is not affiliated with, sponsored by, or endorsed by any firm listed above.
         </div>
       </div>
     </section>
@@ -501,12 +531,14 @@
         </div>
 
         <ul class="clean">
-          <li><b>Resume + story positioning:</b> Finance-ready structure, natural delivery, and a “why” that lands</li>
-          <li><b>Technical training:</b> IB fundamentals, markets basics, and pattern recognition for common question types</li>
-          <li><b>Networking strategy + outreach scripts:</b> Pipeline design, follow-ups, and converting outreach into calls</li>
-          <li><b>Mock interviews + debriefs:</b> Fit + technical reps, timed practice, and actionable feedback</li>
-          <li><b>Offer decisions + next steps:</b> Timing, communication, and maintaining optionality</li>
+          <li><b>Resume + story positioning</b> (finance-ready, natural delivery, “why” that actually lands)</li>
+          <li><b>Technical training</b> (IB core concepts + markets basics + question pattern recognition)</li>
+          <li><b>Networking strategy + outreach scripts</b> (pipeline, follow-ups, conversion to calls)</li>
+          <li><b>Mock interviews + debriefs</b> (fit + technical, timed reps, feedback you can apply immediately)</li>
+          <li><b>Offer decisions + next steps</b> (timing, communication, and keeping optionality)</li>
         </ul>
+
+        <div class="subtle">No fluff. Just the parts of recruiting that translate to actual interviews and offers.</div>
       </div>
     </section>
 
@@ -514,17 +546,14 @@
       <div class="card cta">
         <div>
           <h3 style="margin:0 0 6px;">Want to see outcomes + feedback?</h3>
+          <p class="lede" style="margin:0;">View the full testimonials page (all reviews + firm tags).</p>
         </div>
         <div class="cta-actions">
           <a class="btn secondary" href="./testimonials.html">See all testimonials</a>
+          <a class="btn primary" href="https://calendly.com/lmrichar-usc/30min" target="_blank" rel="noopener">Book a Call</a>
         </div>
       </div>
     </section>
-
-    <!-- Disclaimer moved to bottom of front page -->
-    <div class="disclaimer" style="margin-top:18px;">
-      Disclaimer: Offer Ready is not affiliated with, sponsored by, or endorsed by any firm listed on this website.
-    </div>
 
     <footer>
       <div>© <span id="yr"></span> Offer Ready</div>
@@ -534,6 +563,44 @@
 
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
+
+    const copy = async (text) => {
+      try{
+        await navigator.clipboard.writeText(text);
+        toast("Copied to clipboard");
+      }catch(e){
+        const t = document.createElement("textarea");
+        t.value = text;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand("copy");
+        t.remove();
+        toast("Copied to clipboard");
+      }
+    };
+
+    document.getElementById("copyLucas").addEventListener("click", () => copy("lmrichar@usc.edu"));
+    document.getElementById("copySanti").addEventListener("click", () => copy("smrichar@usc.edu"));
+
+    function toast(msg){
+      const t = document.createElement("div");
+      t.textContent = msg;
+      t.style.position="fixed";
+      t.style.left="50%";
+      t.style.bottom="18px";
+      t.style.transform="translateX(-50%)";
+      t.style.background="rgba(15,23,42,.92)";
+      t.style.color="#fff";
+      t.style.padding="10px 12px";
+      t.style.borderRadius="999px";
+      t.style.fontWeight="700";
+      t.style.fontSize="13px";
+      t.style.boxShadow="0 14px 28px rgba(2,6,23,.25)";
+      t.style.zIndex="9999";
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.style.opacity="0"; t.style.transition="opacity .25s"; }, 1100);
+      setTimeout(()=> t.remove(), 1450);
+    }
   </script>
 </body>
 </html>
