@@ -198,168 +198,76 @@
       padding:18px;
     }
 
-    /* ===== Placement logo banner (bigger, ~6 visible, not circular) ===== */
-    .placements{ overflow:hidden; position:relative; }
+    /* ===== Placement logo banner (WIDE + readable + full color) ===== */
+.placements{ overflow:hidden; position:relative; }
 
-    .marquee-window{
-      max-width:780px;          /* controls how many logos show at once */
-      margin:12px auto 0;
-      overflow:hidden;
-      padding:4px 0;
-    }
+/* Window width controls “how many visible at once”.
+   With 1120 max container, 3 tiles fits nicely. */
+.marquee-window{
+  max-width: 1040px;     /* wider window so tiles aren’t cramped */
+  margin: 12px auto 0;
+  overflow: hidden;
+  padding: 6px 0;
+}
 
-    .marquee{
-      display:flex;
-      gap:20px;
-      width:max-content;
-      animation: scroll 32s linear infinite;
-      align-items:center;
-      padding:8px 0 6px;
-    }
-    .placements:hover .marquee{ animation-play-state:paused; }
+.marquee{
+  display:flex;
+  gap: 22px;
+  width: max-content;
+  align-items:center;
+  animation: scroll 34s linear infinite;
+  padding: 10px 0 8px;
+}
+.placements:hover .marquee{ animation-play-state:paused; }
 
-    .firm.logo{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:16px 20px;
-      height:76px;              /* overall “banner tile” height */
-      border-radius:14px;
-      border:1px solid rgba(229,231,235,.85);
-      background:rgba(255,255,255,.92);
-      box-shadow:0 10px 22px rgba(2,6,23,.06);
-      flex:0 0 auto;
-    }
+/* Big change: fixed wide tile so full logo fits */
+.firm.logo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width: 320px;          /* <-- KEY: make each logo tile wide */
+  height: 92px;          /* a bit taller */
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(229,231,235,.85);
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 10px 22px rgba(2,6,23,.06);
+  flex: 0 0 auto;
+}
 
-    .firm.logo img{
-      height:46px;              /* logo size */
-      width:auto;
-      max-width:170px;
-      object-fit:contain;
-      display:block;
-      opacity:.92;
-      filter: grayscale(100%);
-      transition: opacity .2s ease, filter .2s ease;
-    }
-    .firm.logo:hover img{
-      opacity:1;
-      filter: grayscale(0%);
-    }
+/* Let the image use the width; don’t cap it too small */
+.firm.logo img{
+  height: 58px;          /* logo height */
+  width: 100%;
+  max-width: 280px;      /* still leaves padding inside tile */
+  object-fit: contain;
+  display:block;
+  opacity: 1;            /* full */
+  filter: none;          /* <-- KEY: remove grayscale */
+}
 
-    @keyframes scroll {
-      from{ transform: translateX(0); }
-      to{ transform: translateX(-50%); }
-    }
+/* Optional: subtle hover pop */
+.firm.logo:hover{
+  transform: translateY(-1px);
+  transition: transform .15s ease;
+}
 
-    .disclaimer{
-      margin-top:10px;
-      font-size:12px;
-      color:var(--muted);
-    }
+@keyframes scroll {
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
 
-    /* How it works */
-    .steps{ display:grid; gap:12px; }
-    .step{
-      display:flex; gap:12px; align-items:flex-start;
-      padding:16px;
-      border-radius:16px;
-      border:1px solid rgba(229,231,235,.85);
-      background:rgba(255,255,255,.92);
-      box-shadow:0 12px 24px rgba(2,6,23,.06);
-    }
-    .num{
-      width:30px; height:30px; border-radius:10px;
-      background:rgba(37,99,235,.10);
-      border:1px solid rgba(37,99,235,.22);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:800; color:var(--navy);
-      flex:0 0 auto;
-    }
-    .step b{ display:block; margin-bottom:2px; }
-    .step span{ color:var(--muted); font-size:13px; }
+/* Mobile tweaks: still readable */
+@media (max-width: 900px){
+  .marquee-window{ max-width: 100%; }
+  .firm.logo{ width: 280px; height: 86px; }
+  .firm.logo img{ height: 54px; max-width: 250px; }
+}
 
-    /* What we work on */
-    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 12px; }
-    .chip{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(229,231,235,.95);
-      background:rgba(255,255,255,.92);
-      font-weight:700;
-      font-size:12px;
-      color:#0f172a;
-    }
-    ul.clean{
-      margin:0; padding-left:18px;
-      color:#111827;
-    }
-    ul.clean li{ margin:8px 0; }
-    ul.clean li b{ color:#0f172a; }
-    .subtle{
-      color:var(--muted);
-      margin-top:10px;
-      font-size:13px;
-    }
-
-    /* CTA / Buttons */
-    .cta{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .cta-actions{ display:flex; gap:10px; flex-wrap:wrap; }
-    .small{
-      font-size:12px;
-      color:var(--muted);
-      margin-top:8px;
-    }
-    .btn{
-      cursor:pointer;
-      border:none;
-      border-radius:999px;
-      padding:12px 14px;
-      font-weight:750;
-      font-size:13px;
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:8px;
-      background:#fff;
-    }
-    .btn.primary{
-      background:linear-gradient(135deg, var(--navy), var(--navy2));
-      color:#fff;
-      box-shadow:0 14px 24px rgba(11,43,114,.24);
-    }
-    .btn.secondary{
-      background:#fff;
-      border:1px solid var(--line);
-      color:#0f172a;
-      box-shadow:none;
-    }
-
-    footer{
-      margin-top:26px;
-      padding-top:16px;
-      border-top:1px solid rgba(229,231,235,.85);
-      color:var(--muted);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    @media (max-width: 900px){
-      .hero{ grid-template-columns: 1fr; }
-      .brand{ min-width:auto; }
-      .nav-links{ gap:10px; }
-
-      /* On mobile, show fewer/larger tiles cleanly */
-      .marquee-window{ max-width: 100%; }
-      .firm.logo{ height:72px; padding:14px 16px; }
-      .firm.logo img{ height:44px; max-width:160px; }
-    }
+@media (max-width: 520px){
+  .firm.logo{ width: 250px; height: 82px; }
+  .firm.logo img{ height: 50px; max-width: 220px; }
+}
 
     @media (max-width: 520px){
       .nav-inner{ flex-wrap:wrap; }
