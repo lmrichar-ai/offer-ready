@@ -61,7 +61,6 @@
       min-width: 180px;
     }
 
-    /* Logo (consistent on iOS Safari) */
     .logo{
       width:34px; height:34px; border-radius:10px;
       background:linear-gradient(135deg, var(--blue), var(--navy));
@@ -197,10 +196,9 @@
       padding:18px;
     }
 
-    /* ===== Placement logo banner (WIDE + readable + full color) ===== */
+    /* Placement name banner */
     .placements{ overflow:hidden; position:relative; }
 
-    /* Constrained window so fewer logos are visible at once (bigger tiles) */
     .marquee-window{
       max-width: 1040px;
       margin: 12px auto 0;
@@ -210,7 +208,7 @@
 
     .marquee{
       display:flex;
-      gap: 22px;
+      gap: 14px;
       width:max-content;
       align-items:center;
       animation: scroll 34s linear infinite;
@@ -218,37 +216,26 @@
     }
     .placements:hover .marquee{ animation-play-state:paused; }
 
-    /* Wide tile so full logo fits */
-    .firm.logo{
+    .firm-name{
       display:flex;
       align-items:center;
       justify-content:center;
-      width: 320px;
-      height: 92px;
-      padding: 14px 18px;
-      border-radius: 16px;
+      padding: 0 20px;
+      height: 56px;
+      border-radius: 14px;
       border: 1px solid rgba(229,231,235,.85);
       background: rgba(255,255,255,.95);
-      box-shadow: 0 10px 22px rgba(2,6,23,.06);
+      box-shadow: 0 8px 18px rgba(2,6,23,.06);
       flex: 0 0 auto;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--navy);
+      white-space: nowrap;
+      transition: transform .15s ease, box-shadow .15s ease;
     }
-
-    /* Important: avoid stretching to 100% width (causes “wrong” look on some PNGs) */
-    .firm.logo img{
-      height: 58px;
-      width: auto;
-      max-width: 280px;
-      object-fit: contain;
-      display:block;
-      opacity: 1;
-      filter: none;
-    }
-
-    /* Optional: subtle hover pop */
-    .firm.logo{ transition: transform .15s ease, box-shadow .15s ease; }
-    .firm.logo:hover{
+    .firm-name:hover{
       transform: translateY(-1px);
-      box-shadow: 0 14px 26px rgba(2,6,23,.08);
+      box-shadow: 0 12px 22px rgba(2,6,23,.09);
     }
 
     @keyframes scroll {
@@ -359,17 +346,12 @@
       .hero{ grid-template-columns: 1fr; }
       .brand{ min-width:auto; }
       .nav-links{ gap:10px; }
-
       .marquee-window{ max-width: 100%; }
-      .firm.logo{ width: 280px; height: 86px; }
-      .firm.logo img{ height: 54px; max-width: 250px; }
     }
 
     @media (max-width: 520px){
       .nav-inner{ flex-wrap:wrap; }
       .cta{ gap:10px; }
-      .firm.logo{ width: 250px; height: 82px; }
-      .firm.logo img{ height: 50px; max-width: 220px; }
     }
   </style>
 </head>
@@ -397,7 +379,7 @@
     <section class="hero">
       <div class="hero-card">
         <div class="kicker">Structured • Practical • Built for real interviews</div>
-        <h2>Recruiting help that’s structured, practical, and built for real interviews.</h2>
+        <h2>Recruiting help that's structured, practical, and built for real interviews.</h2>
         <p>
           Offer Ready mentors students pursuing <b>investment banking</b>, <b>wealth management</b>, and <b>buy-side</b> roles.
           We focus on what drives outcomes: positioning, networking, technical readiness, and interview performance.
@@ -427,7 +409,7 @@
         <div class="card section" style="margin-top:8px;">
           <h3 style="margin:0 0 6px;">Book a quick intro call</h3>
           <p class="lede" style="margin-bottom:12px;">
-            We’ll learn your goals, recruiting timeline, and current profile. If there’s a fit, we’ll outline next steps.
+            We'll learn your goals, recruiting timeline, and current profile. If there's a fit, we'll outline next steps.
           </p>
 
           <div class="cta-actions">
@@ -448,38 +430,38 @@
         <div class="marquee-window" aria-label="Firm placement ticker">
           <div class="marquee">
             <!-- LIST A -->
-            <div class="firm logo"><img src="assets/goldman-sachs.svg" alt="Goldman Sachs" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/blackstone.svg" alt="Blackstone" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/evercore.svg" alt="Evercore" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/lazard.svg" alt="Lazard" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/rothschild.svg" alt="Rothschild" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/bank-of-america.svg" alt="Bank of America" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/bain-capital.svg" alt="Bain Capital" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/jpmorgan.svg" alt="J.P. Morgan" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/ubs.svg" alt="UBS" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/citi.svg" alt="Citi" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/piper-sandler.svg" alt="Piper Sandler" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/pwp.svg" alt="PWP" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/macquarie.svg" alt="Macquarie" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/vista.svg" alt="Vista Equity Partners" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/rbc.svg" alt="RBC" loading="lazy"></div>
+            <div class="firm-name">Goldman Sachs</div>
+            <div class="firm-name">Blackstone</div>
+            <div class="firm-name">Evercore</div>
+            <div class="firm-name">Lazard</div>
+            <div class="firm-name">Rothschild</div>
+            <div class="firm-name">Bank of America</div>
+            <div class="firm-name">Bain Capital</div>
+            <div class="firm-name">J.P. Morgan</div>
+            <div class="firm-name">UBS</div>
+            <div class="firm-name">Citi</div>
+            <div class="firm-name">Piper Sandler</div>
+            <div class="firm-name">PWP</div>
+            <div class="firm-name">Macquarie</div>
+            <div class="firm-name">Vista Equity Partners</div>
+            <div class="firm-name">RBC</div>
 
             <!-- LIST B (repeat for seamless scroll) -->
-            <div class="firm logo"><img src="assets/goldman-sachs.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/blackstone.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/evercore.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/lazard.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/rothschild.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/bank-of-america.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/bain-capital.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/jpmorgan.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/ubs.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/citi.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/piper-sandler.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/pwp.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/macquarie.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/vista.svg" alt="" aria-hidden="true" loading="lazy"></div>
-            <div class="firm logo"><img src="assets/rbc.svg" alt="" aria-hidden="true" loading="lazy"></div>
+            <div class="firm-name" aria-hidden="true">Goldman Sachs</div>
+            <div class="firm-name" aria-hidden="true">Blackstone</div>
+            <div class="firm-name" aria-hidden="true">Evercore</div>
+            <div class="firm-name" aria-hidden="true">Lazard</div>
+            <div class="firm-name" aria-hidden="true">Rothschild</div>
+            <div class="firm-name" aria-hidden="true">Bank of America</div>
+            <div class="firm-name" aria-hidden="true">Bain Capital</div>
+            <div class="firm-name" aria-hidden="true">J.P. Morgan</div>
+            <div class="firm-name" aria-hidden="true">UBS</div>
+            <div class="firm-name" aria-hidden="true">Citi</div>
+            <div class="firm-name" aria-hidden="true">Piper Sandler</div>
+            <div class="firm-name" aria-hidden="true">PWP</div>
+            <div class="firm-name" aria-hidden="true">Macquarie</div>
+            <div class="firm-name" aria-hidden="true">Vista Equity Partners</div>
+            <div class="firm-name" aria-hidden="true">RBC</div>
           </div>
         </div>
 
@@ -506,7 +488,7 @@
           <div class="num">2</div>
           <div>
             <b>Build</b>
-            <span>We tighten resume + story, train technicals, and create a networking pipeline that’s realistic and consistent.</span>
+            <span>We tighten resume + story, train technicals, and create a networking pipeline that's realistic and consistent.</span>
           </div>
         </div>
 
@@ -534,7 +516,7 @@
         </div>
 
         <ul class="clean">
-          <li><b>Resume + story positioning:</b> Finance-ready structure, natural delivery, and a “why” that lands</li>
+          <li><b>Resume + story positioning:</b> Finance-ready structure, natural delivery, and a "why" that lands</li>
           <li><b>Technical training:</b> IB fundamentals, markets basics, and pattern recognition for common question types</li>
           <li><b>Networking strategy + outreach scripts:</b> Pipeline design, follow-ups, and converting outreach into calls</li>
           <li><b>Mock interviews + debriefs:</b> Fit + technical reps, timed practice, and actionable feedback</li>
@@ -610,4 +592,3 @@
   </script>
 </body>
 </html>
-  
