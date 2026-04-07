@@ -61,38 +61,25 @@
       min-width: 180px;
     }
 
-    .logo{
-      width:34px; height:34px; border-radius:10px;
-      background:linear-gradient(135deg, var(--blue), var(--navy));
-      box-shadow:0 10px 22px rgba(37,99,235,.28);
-      position:relative;
-      overflow:hidden;
-    }
-    .logo:before{
-      content:"";
-      position:absolute;
-      inset:7px;
-      border-radius:8px;
-      background:
-        linear-gradient(#fff,#fff) left 6px bottom / 5px 38% no-repeat,
-        linear-gradient(#fff,#fff) center bottom / 5px 62% no-repeat,
-        linear-gradient(#fff,#fff) right 6px bottom / 5px 86% no-repeat;
-      opacity:.95;
-    }
+    .logo-svg{ flex-shrink:0; }
 
     .brand h1{
       margin:0;
-      font-size:14px;
+      font-size:15px;
       line-height:1.1;
-      letter-spacing:-.2px;
+      letter-spacing:-.3px;
+      color:#111111;
     }
+    .brand h1 .blue{ color:#2563eb; }
     .brand span{
       display:block;
-      font-size:12px;
+      font-size:11px;
       color:var(--muted);
       margin-top:2px;
       font-weight:500;
+      letter-spacing:.4px;
     }
+
     .nav-links{
       display:flex; align-items:center; gap:14px;
     }
@@ -360,10 +347,15 @@
   <div class="nav">
     <div class="nav-inner">
       <a class="brand" href="./index.html" aria-label="Offer Ready Home">
-        <div class="logo" aria-hidden="true"></div>
+        <svg class="logo-svg" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="34" height="34" rx="9" fill="#111111"/>
+          <rect x="8" y="21" width="4" height="7" rx="2" fill="white" opacity="0.45"/>
+          <rect x="15" y="16" width="4" height="12" rx="2" fill="white" opacity="0.72"/>
+          <rect x="22" y="10" width="4" height="18" rx="2" fill="white"/>
+        </svg>
         <div>
-          <h1>Offer Ready</h1>
-          <span>Recruiting mentorship</span>
+          <h1><span class="blue">Offer</span> Ready</h1>
+          <span>Finance recruiting mentorship</span>
         </div>
       </a>
 
